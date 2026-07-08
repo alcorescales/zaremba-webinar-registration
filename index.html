@@ -21,13 +21,17 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
 
   body {
     font-family: 'Barlow', sans-serif;
     background: var(--cream-bg);
     color: var(--text-dark);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
+
+  img { max-width: 100%; }
 
   .serif { font-family: 'Instrument Serif', serif; }
   .serif-italic { font-family: 'Instrument Serif', serif; font-style: italic; }
@@ -55,22 +59,13 @@
   section { padding: 80px 24px; max-width: 900px; margin: 0 auto; }
 
   /* HERO */
-  .hero {
-    padding-top: 80px;
-    padding-bottom: 60px;
-    max-width: 1100px;
-  }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 48px;
-    align-items: center;
-  }
+  .hero { padding-top: 80px; padding-bottom: 60px; max-width: 1100px; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
   .hero-copy { text-align: left; }
   .hero-copy .eyebrow { justify-content: flex-start; }
   .hero-copy .eyebrow::after { display: none; }
   .hero h1 {
-    font-size: 3rem;
+    font-size: clamp(1.9rem, 5vw, 3rem);
     line-height: 1.15;
     font-weight: 700;
     margin: 24px 0 16px;
@@ -81,24 +76,13 @@
     font-family: 'Instrument Serif', serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: clamp(1.15rem, 3.2vw, 1.5rem);
     color: var(--antique-gold);
     margin-bottom: 20px;
+    line-height: 1.4;
   }
-  .hero p.desc {
-    max-width: 500px;
-    margin: 0 0 28px;
-    color: var(--text-muted);
-    font-size: 1.02rem;
-    line-height: 1.6;
-  }
-  .datetime {
-    letter-spacing: 0.15em;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 24px;
-  }
+  .hero p.desc { max-width: 500px; margin: 0 0 28px; color: var(--text-muted); font-size: 1.02rem; line-height: 1.6; }
+  .datetime { letter-spacing: 0.15em; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 24px; }
 
   .btn-gold {
     display: inline-block;
@@ -114,331 +98,141 @@
     border: none;
     cursor: pointer;
     box-shadow: 0 8px 20px rgba(201, 162, 75, 0.35);
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    min-height: 48px;
+    -webkit-tap-highlight-color: transparent;
   }
   .btn-gold:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 10px 2px rgba(184, 146, 63, 0.3), 0 0 22px 5px rgba(139, 105, 20, 0.18), 0 8px 20px rgba(201, 162, 75, 0.3);
   }
-  .btn-gold {
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-  }
+  .btn-gold:active { transform: translateY(0); }
 
-  .hero-img-wrap {
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.3);
-  }
+  .hero-img-wrap { border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.3); }
   .hero-img-wrap img { width: 100%; display: block; }
 
   /* LEARN SECTION */
   .learn-heading { text-align: center; margin-bottom: 48px; }
-  .learn-heading h2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-top: 16px;
-  }
+  .learn-heading h2 { font-size: clamp(1.6rem, 4.5vw, 2.2rem); font-weight: 700; margin-top: 16px; }
   .learn-heading h2 em { color: var(--gold); font-style: italic; font-weight: 700; }
-
-  .learn-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  .learn-card {
-    background: var(--pearl);
-    border: 1px solid rgba(201,162,75,0.2);
-    border-radius: 16px;
-    padding: 28px;
-  }
-  .learn-card .icon {
-    color: var(--gold);
-    font-size: 1.3rem;
-    margin-bottom: 12px;
-  }
+  .learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .learn-card { background: var(--pearl); border: 1px solid rgba(201,162,75,0.2); border-radius: 16px; padding: 28px; }
+  .learn-card .icon { color: var(--gold); font-size: 1.3rem; margin-bottom: 12px; }
   .learn-card p { color: var(--text-dark); font-size: 0.98rem; line-height: 1.55; }
 
   /* FOR YOU IF */
-  .qualify-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    align-items: stretch;
-  }
-  .qualify-card {
-    background: linear-gradient(135deg, var(--champagne), #ecdcb8);
-    border-radius: 20px;
-    padding: 44px 36px;
-  }
-  .qualify-card h3 {
-    font-size: 1.9rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
+  .qualify-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+  .qualify-card { background: linear-gradient(135deg, var(--champagne), #ecdcb8); border-radius: 20px; padding: 44px 36px; }
+  .qualify-card h3 { font-size: clamp(1.5rem, 4vw, 1.9rem); font-weight: 700; margin-bottom: 20px; }
   .qualify-card h3 em { color: var(--gold); font-style: italic; font-weight: 700; }
   .qualify-list { list-style: none; }
-  .qualify-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    font-size: 0.98rem;
-  }
+  .qualify-list li { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 0.98rem; }
   .qualify-list li:last-child { border-bottom: none; }
   .check { color: var(--deep-noir); background: var(--gold); border-radius: 50%; min-width: 20px; height: 20px; display:flex; align-items:center; justify-content:center; font-size: 0.7rem; margin-top: 2px;}
 
-  .disqualify-card {
-    background: var(--obsidian);
-    border-radius: 20px;
-    padding: 44px 36px;
-    color: var(--champagne);
-  }
-  .disqualify-card h3 {
-    font-size: 1.9rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--pearl);
-  }
+  .disqualify-card { background: var(--obsidian); border-radius: 20px; padding: 44px 36px; color: var(--champagne); }
+  .disqualify-card h3 { font-size: clamp(1.5rem, 4vw, 1.9rem); font-weight: 700; margin-bottom: 20px; color: var(--pearl); }
   .disqualify-card h3 em { color: var(--gold); font-style: italic; font-weight: 700; }
   .disqualify-list { list-style: none; }
-  .disqualify-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    font-size: 0.98rem;
-    color: #d8cdb8;
-  }
+  .disqualify-list li { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 0.98rem; color: #d8cdb8; }
   .disqualify-list li:last-child { border-bottom: none; }
   .cross { color: var(--gold); min-width: 20px; }
 
   /* MID PHOTO SLIDER */
-  .mid-slider {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-    background: var(--obsidian);
-  }
-  .slider-track {
-    display: flex;
-    transition: transform 0.5s ease;
-  }
-  .slider-slide {
-    min-width: 100%;
-    flex-shrink: 0;
-  }
-  .slider-slide img {
-    width: 100%;
-    display: block;
-    filter: grayscale(100%);
-    max-height: 380px;
-    object-fit: cover;
-  }
+  .mid-slider { position: relative; width: 100%; max-width: 100%; overflow: hidden; background: var(--obsidian); touch-action: pan-y; }
+  .slider-track { display: flex; transition: transform 0.5s ease; }
+  .slider-slide { min-width: 100%; flex-shrink: 0; }
+  .slider-slide img { width: 100%; display: block; filter: grayscale(100%); max-height: 380px; object-fit: cover; }
   .slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(20,17,13,0.55);
-    border: 1px solid rgba(201,162,75,0.4);
-    color: var(--gold);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1.1rem;
-    z-index: 5;
-    transition: background 0.2s ease;
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(20,17,13,0.55); border: 1px solid rgba(201,162,75,0.4); color: var(--gold);
+    width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 1.1rem; z-index: 5; transition: background 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
   }
   .slider-arrow:hover { background: rgba(201,162,75,0.25); }
   .slider-arrow.prev { left: 20px; }
   .slider-arrow.next { right: 20px; }
-  .slider-dots {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    z-index: 5;
-  }
-  .slider-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(250,246,238,0.4);
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
-  }
-  .slider-dot.active {
-    background: var(--gold);
-    transform: scale(1.3);
-  }
-  @media (max-width: 640px) {
-    .slider-slide img { max-height: 260px; }
-    .slider-arrow { width: 36px; height: 36px; font-size: 0.95rem; }
-    .slider-arrow.prev { left: 10px; }
-    .slider-arrow.next { right: 10px; }
-  }
+  .slider-dots { position: absolute; bottom: 20px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 5; }
+  .slider-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(250,246,238,0.4); cursor: pointer; transition: background 0.2s ease, transform 0.2s ease; }
+  .slider-dot.active { background: var(--gold); transform: scale(1.3); }
 
   /* BIO */
   .bio { text-align: center; }
   .bio-intro { max-width: 640px; margin: 0 auto 56px; }
   .bio .eyebrow { margin-bottom: 12px; }
-  .bio h2 { font-size: 2.4rem; font-weight: 700; margin-bottom: 16px; }
+  .bio h2 { font-size: clamp(1.7rem, 4.5vw, 2.4rem); font-weight: 700; margin-bottom: 16px; }
   .bio h2 em { color: var(--gold); font-style: italic; font-weight: 700; }
 
-  .bio-row {
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 48px;
-    align-items: center;
-    text-align: left;
-    margin-bottom: 64px;
-  }
+  .bio-row { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 48px; align-items: center; text-align: left; margin-bottom: 64px; }
   .bio-row.reverse { grid-template-columns: 1.15fr 0.85fr; }
   .bio-row.reverse .bio-row-img { order: 2; }
   .bio-row.reverse .bio-row-text { order: 1; }
 
-  .bio-row-img {
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 24px 48px -16px rgba(0,0,0,0.25);
-  }
-  .bio-row-img img {
-    width: 100%;
-    display: block;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-  }
-  .bio-row-text .bio-kicker {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--antique-gold);
-    font-weight: 700;
-    margin-bottom: 10px;
-    display: block;
-  }
-  .bio-row-text p {
-    font-size: 1.02rem;
-    line-height: 1.75;
-    color: var(--text-dark);
-    font-weight: 600;
-  }
-
-  @media (max-width: 800px) {
-    .bio-row, .bio-row.reverse {
-      grid-template-columns: 1fr;
-      gap: 24px;
-      margin-bottom: 44px;
-    }
-    .bio-row.reverse .bio-row-img,
-    .bio-row.reverse .bio-row-text,
-    .bio-row .bio-row-img,
-    .bio-row .bio-row-text {
-      order: initial;
-    }
-    .bio-row-img img { aspect-ratio: 16/10; }
-  }
+  .bio-row-img { border-radius: 18px; overflow: hidden; box-shadow: 0 24px 48px -16px rgba(0,0,0,0.25); }
+  .bio-row-img img { width: 100%; display: block; aspect-ratio: 4/5; object-fit: cover; }
+  .bio-row-text .bio-kicker { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--antique-gold); font-weight: 700; margin-bottom: 10px; display: block; }
+  .bio-row-text p { font-size: 1.02rem; line-height: 1.75; color: var(--text-dark); font-weight: 600; }
 
   /* FAQ */
   .faq-heading { text-align: center; margin-bottom: 40px; }
-  .faq-heading h2 { font-size: 2.2rem; font-weight: 700; margin-top: 16px; }
+  .faq-heading h2 { font-size: clamp(1.6rem, 4.5vw, 2.2rem); font-weight: 700; margin-top: 16px; }
   .faq-heading h2 em { color: var(--gold); font-style: italic; font-weight: 700; }
-
-  .faq-item {
-    background: var(--pearl);
-    border: 1px solid rgba(201,162,75,0.2);
-    border-radius: 14px;
-    margin-bottom: 14px;
-    overflow: hidden;
-  }
+  .faq-item { background: var(--pearl); border: 1px solid rgba(201,162,75,0.2); border-radius: 14px; margin-bottom: 14px; overflow: hidden; }
   .faq-question {
-    padding: 20px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 1rem;
+    padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    cursor: pointer; font-weight: 600; font-size: 0.98rem; line-height: 1.4;
+    -webkit-tap-highlight-color: transparent; min-height: 48px;
   }
-  .faq-question .arrow { color: var(--gold); transition: transform 0.25s ease; font-size: 0.9rem; }
+  .faq-question .arrow { color: var(--gold); transition: transform 0.25s ease; font-size: 0.9rem; flex-shrink: 0; }
   .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    padding: 0 24px;
-  }
-  .faq-item.open .faq-answer { max-height: 400px; padding-bottom: 22px; }
-  .faq-answer p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 20px; }
+  .faq-item.open .faq-answer { max-height: 500px; padding-bottom: 20px; }
+  .faq-answer p { color: var(--text-muted); line-height: 1.6; font-size: 0.92rem; }
 
   /* FINAL CTA */
-  .final-cta {
-    background: linear-gradient(160deg, var(--champagne), #f0dfb8);
-    border-radius: 28px;
-    text-align: center;
-    padding: 64px 32px;
-    margin-bottom: 60px;
-  }
+  .final-cta { background: linear-gradient(160deg, var(--champagne), #f0dfb8); border-radius: 28px; text-align: center; padding: 64px 32px; margin-bottom: 60px; }
   .final-cta .eyebrow { margin-bottom: 12px; }
-  .final-cta h2 { font-size: 2.3rem; font-weight: 700; margin-bottom: 16px; }
+  .final-cta h2 { font-size: clamp(1.7rem, 4.5vw, 2.3rem); font-weight: 700; margin-bottom: 16px; }
   .final-cta h2 em { color: var(--gold); font-style: italic; font-weight: 700; }
   .final-cta p.sub { color: var(--text-muted); margin-bottom: 32px; }
 
   .form-wrap { max-width: 380px; margin: 0 auto; }
   .form-wrap input {
-    width: 100%;
-    padding: 15px 18px;
-    border-radius: 10px;
-    border: 1px solid rgba(0,0,0,0.12);
-    margin-bottom: 14px;
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.95rem;
-    background: var(--pearl);
+    width: 100%; padding: 15px 18px; border-radius: 10px; border: 1px solid rgba(0,0,0,0.12);
+    margin-bottom: 14px; font-family: 'Barlow', sans-serif; font-size: 16px; background: var(--pearl); min-height: 48px;
   }
   .form-wrap input:focus { outline: 2px solid var(--gold); }
 
-  .consent-group {
-    text-align: left;
-    margin: 4px 0 16px;
-  }
-  .consent-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  .consent-item input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    min-width: 18px;
-    margin-top: 2px;
-    accent-color: var(--gold);
-    cursor: pointer;
-  }
-  .consent-item label {
-    font-size: 0.82rem;
-    line-height: 1.5;
-    color: var(--text-muted);
-    cursor: pointer;
-  }
+  .consent-group { text-align: left; margin: 4px 0 16px; }
+  .consent-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+  .consent-item input[type="checkbox"] { width: 20px; height: 20px; min-width: 20px; margin-top: 2px; accent-color: var(--gold); cursor: pointer; }
+  .consent-item label { font-size: 0.82rem; line-height: 1.5; color: var(--text-muted); cursor: pointer; }
   .fine-print { font-size: 0.75rem; color: var(--text-muted); margin-top: 16px; }
 
-  footer {
-    text-align: center;
-    padding: 40px 24px;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    letter-spacing: 0.05em;
+  footer { text-align: center; padding: 40px 24px; font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.05em; }
+
+  /* STICKY COUNTDOWN BAR */
+  .countdown-bar-wrap { position: sticky; top: 0; z-index: 999; display: flex; justify-content: center; padding: 10px 14px 0; }
+  .countdown-bar {
+    width: 100%; background: rgba(26, 22, 17, 0.55);
+    -webkit-backdrop-filter: blur(16px) saturate(160%); backdrop-filter: blur(16px) saturate(160%);
+    color: var(--pearl); padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: 16px; font-size: 0.85rem; letter-spacing: 0.03em; border: 1px solid rgba(201,162,75,0.25);
+    border-radius: 28px; box-shadow: 0 8px 32px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
   }
+  .countdown-bar .cd-label { color: #d8cdb8; font-weight: 500; }
+  .countdown-bar .cd-date { color: var(--gold); font-weight: 700; }
+  .countdown-timer { display: flex; gap: 8px; align-items: center; }
+  .countdown-timer .cd-unit {
+    background: rgba(201,162,75,0.10); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    border: 1px solid rgba(201,162,75,0.3); border-radius: 8px; padding: 4px 9px; font-weight: 700;
+    color: var(--bright-gold); min-width: 44px; text-align: center; font-variant-numeric: tabular-nums;
+  }
+  .countdown-timer .cd-unit span.num { display: block; font-size: 1rem; }
+  .countdown-timer .cd-unit span.unit-label { display: block; font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; color: #b8a97e; }
+
+  /* ============ RESPONSIVE ============ */
 
   @media (max-width: 800px) {
     .hero-grid { grid-template-columns: 1fr; }
@@ -447,77 +241,59 @@
     .hero-copy .eyebrow::after { display: flex; }
     .hero p.desc { margin: 0 auto 28px; }
     .qualify-grid { grid-template-columns: 1fr; }
+
+    .bio-row, .bio-row.reverse { grid-template-columns: 1fr; gap: 20px; margin-bottom: 40px; }
+    .bio-row.reverse .bio-row-img, .bio-row.reverse .bio-row-text,
+    .bio-row .bio-row-img, .bio-row .bio-row-text { order: initial; }
+    .bio-row-img img { aspect-ratio: 16/10; }
   }
 
   @media (max-width: 640px) {
-    .hero h1 { font-size: 2.1rem; }
-    .learn-grid { grid-template-columns: 1fr; }
-    .qualify-card, .disqualify-card { padding: 32px 24px; }
-    section { padding: 56px 20px; }
-    .bio h2, .faq-heading h2, .final-cta h2 { font-size: 1.8rem; }
-  }
+    section { padding: 52px 18px; }
+    .hero { padding-top: 32px; padding-bottom: 40px; }
+    .hero-copy .btn-gold { width: 100%; text-align: center; }
+    .hero-img-wrap { max-width: 340px; margin: 0 auto; }
 
-  /* STICKY COUNTDOWN BAR */
-  .countdown-bar-wrap {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    display: flex;
-    justify-content: center;
-    padding: 10px 14px 0;
-  }
-  .countdown-bar {
-    width: 100%;
-    background: rgba(26, 22, 17, 0.55);
-    -webkit-backdrop-filter: blur(16px) saturate(160%);
-    backdrop-filter: blur(16px) saturate(160%);
-    color: var(--pearl);
-    padding: 14px 24px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    font-size: 0.85rem;
-    letter-spacing: 0.03em;
-    border: 1px solid rgba(201,162,75,0.25);
-    border-radius: 28px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
-  }
-  .countdown-bar .cd-label {
-    color: #d8cdb8;
-    font-weight: 500;
-  }
-  .countdown-bar .cd-date {
-    color: var(--gold);
-    font-weight: 700;
-  }
-  .countdown-timer {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-  .countdown-timer .cd-unit {
-    background: rgba(201,162,75,0.10);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(201,162,75,0.3);
-    border-radius: 8px;
-    padding: 4px 9px;
-    font-weight: 700;
-    color: var(--bright-gold);
-    min-width: 44px;
-    text-align: center;
-    font-variant-numeric: tabular-nums;
-  }
-  .countdown-timer .cd-unit span.num { display: block; font-size: 1rem; }
-  .countdown-timer .cd-unit span.unit-label { display: block; font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; color: #b8a97e; }
+    .learn-grid { grid-template-columns: 1fr; gap: 14px; }
+    .learn-card { padding: 22px; }
 
-  @media (max-width: 640px) {
+    .qualify-card, .disqualify-card { padding: 28px 22px; }
+    .qualify-list li, .disqualify-list li { font-size: 0.92rem; }
+
+    .slider-slide img { max-height: 220px; }
+    .slider-arrow { width: 34px; height: 34px; font-size: 0.9rem; }
+    .slider-arrow.prev { left: 8px; }
+    .slider-arrow.next { right: 8px; }
+    .slider-dots { bottom: 12px; }
+
+    .bio-intro { margin-bottom: 36px; }
+    .bio-row-text p { font-size: 0.95rem; line-height: 1.65; }
+
+    .faq-question { font-size: 0.92rem; padding: 16px 16px; }
+    .faq-answer { padding: 0 16px; }
+    .faq-answer p { font-size: 0.88rem; }
+
+    .final-cta { padding: 40px 20px; border-radius: 22px; }
+    .form-wrap { max-width: 100%; }
+
     .countdown-bar-wrap { padding: 8px 8px 0; }
-    .countdown-bar { font-size: 0.72rem; padding: 11px 14px; gap: 8px; border-radius: 22px; }
-    .countdown-timer .cd-unit { padding: 3px 7px; min-width: 34px; }
-    .countdown-timer .cd-unit span.num { font-size: 0.85rem; }
+    .countdown-bar { font-size: 0.68rem; padding: 10px 12px; gap: 6px; border-radius: 20px; justify-content: space-between; }
+    .countdown-bar .cd-label { display: none; }
+    .countdown-bar .cd-date { font-size: 0.65rem; white-space: nowrap; }
+    .countdown-timer { gap: 5px; }
+    .countdown-timer .cd-unit { padding: 3px 6px; min-width: 30px; }
+    .countdown-timer .cd-unit span.num { font-size: 0.8rem; }
+    .countdown-timer .cd-unit span.unit-label { font-size: 0.48rem; }
+  }
+
+  @media (max-width: 380px) {
+    .hero h1 { font-size: 1.7rem; }
+    .countdown-bar .cd-date { font-size: 0.6rem; }
+    .countdown-timer .cd-unit { min-width: 26px; padding: 3px 5px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
   }
 </style>
 </head>
@@ -536,7 +312,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- HERO -->
 <section class="hero">
@@ -562,22 +337,10 @@
     <h2 class="serif">You're going to <em>learn</em> all this</h2>
   </div>
   <div class="learn-grid">
-    <div class="learn-card">
-      <div class="icon">♥</div>
-      <p>You'll learn the actual reason most people lose money trading, and it's not the one you think.</p>
-    </div>
-    <div class="learn-card">
-      <div class="icon">♥</div>
-      <p>You'll see exactly how a $5 risk turns into $40-50, and why that ratio matters more than anything else.</p>
-    </div>
-    <div class="learn-card">
-      <div class="icon">♥</div>
-      <p>You'll understand why being scared of losing money is actually a good sign, not a reason to sit this out.</p>
-    </div>
-    <div class="learn-card">
-      <div class="icon">♥</div>
-      <p>You'll get the same starting point I wish someone gave me before I figured it out the hard way.</p>
-    </div>
+    <div class="learn-card"><div class="icon">♥</div><p>You'll learn the actual reason most people lose money trading, and it's not the one you think.</p></div>
+    <div class="learn-card"><div class="icon">♥</div><p>You'll see exactly how a $5 risk turns into $40-50, and why that ratio matters more than anything else.</p></div>
+    <div class="learn-card"><div class="icon">♥</div><p>You'll understand why being scared of losing money is actually a good sign, not a reason to sit this out.</p></div>
+    <div class="learn-card"><div class="icon">♥</div><p>You'll get the same starting point I wish someone gave me before I figured it out the hard way.</p></div>
   </div>
 </section>
 
@@ -594,7 +357,6 @@
         <li><span class="check">✓</span> You have a job, responsibilities, and real life, and you're not trying to gamble any of it away</li>
       </ul>
     </div>
-
     <div class="disqualify-card">
       <div class="eyebrow" style="margin-bottom:8px; color:#a8926a;">Straight Up</div>
       <h3 class="serif">This is <em>not for you</em> if...</h3>
@@ -611,15 +373,9 @@
 <!-- MID PHOTO SLIDER -->
 <div class="mid-slider" id="midSlider">
   <div class="slider-track" id="sliderTrack">
-    <div class="slider-slide">
-      <img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/1200x640/1a1611/c9a24b?text=Lily+1'">
-    </div>
-    <div class="slider-slide">
-      <img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/1200x640/1a1611/c9a24b?text=Lily+2'">
-    </div>
-    <div class="slider-slide">
-      <img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/1200x640/1a1611/c9a24b?text=Lily+3'">
-    </div>
+    <div class="slider-slide"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/1200x640/1a1611/c9a24b?text=Lily+1'"></div>
+    <div class="slider-slide"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/1200x640/1a1611/c9a24b?text=Lily+2'"></div>
+    <div class="slider-slide"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/1200x640/1a1611/c9a24b?text=Lily+3'"></div>
   </div>
   <div class="slider-arrow prev" onclick="moveSlide(-1)">‹</div>
   <div class="slider-arrow next" onclick="moveSlide(1)">›</div>
@@ -634,9 +390,7 @@
   </div>
 
   <div class="bio-row">
-    <div class="bio-row-img">
-      <img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/500x625/1a1611/c9a24b?text=Lily'">
-    </div>
+    <div class="bio-row-img"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/500x625/1a1611/c9a24b?text=Lily'"></div>
     <div class="bio-row-text">
       <span class="bio-kicker">Where It Started</span>
       <p>So a little about me. I grew up in a house where money was always tight, always a fight. My dad came here with $20 in his pocket. My mom worked in a factory. I know what it's like to feel like you don't have control over your own life. I actually spent a couple years in foster care as a kid because things at home were that unstable. So from a really young age I understood something most people don't figure out until way later, money isn't about being rich. It's about having options. I got rejected from eight jobs in a row, including McDonald's. I worked 15 hour shifts in fast food while going to university, and I still felt like I wasn't getting anywhere. Then one day I made $500 in 30 minutes trading. And I remember thinking, how do I justify working for $14 an hour when I just made that in half an hour. That was it for me. I quit my job. I dropped out of school. No plan B, just plan A.</p>
@@ -644,9 +398,7 @@
   </div>
 
   <div class="bio-row reverse">
-    <div class="bio-row-img">
-      <img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/500x625/1a1611/c9a24b?text=Lily'">
-    </div>
+    <div class="bio-row-img"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/500x625/1a1611/c9a24b?text=Lily'"></div>
     <div class="bio-row-text">
       <span class="bio-kicker">Why I Trust This</span>
       <p>Since then I've built multiple businesses and helped hundreds of people generate real income. But honestly, a lot of where I am now comes down to someone I've known for years, someone I trust more than anyone else when it comes to this. I watched him go from having a regular 9-5 like everyone else to doing this full time. I've seen the entire transformation up close. What makes his approach different is the risk to reward, he's not out here throwing money at the market hoping something sticks. He's calculated. He risks small to make a lot more back. And he's not trying to sell anything, he's just genuinely good at what he does, which honestly makes me trust him more. I'm not naming him here, that part comes later.</p>
@@ -654,9 +406,7 @@
   </div>
 
   <div class="bio-row">
-    <div class="bio-row-img">
-      <img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/500x625/1a1611/c9a24b?text=Lily'">
-    </div>
+    <div class="bio-row-img"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/500x625/1a1611/c9a24b?text=Lily'"></div>
     <div class="bio-row-text">
       <span class="bio-kicker">Why I'm Doing This</span>
       <p>Because of him I've been able to actually build something real, and because I know what it feels like to be exactly where a lot of you are right now, I want to help the people who are in that same spot. So that's what this masterclass is. Me being honest about what actually worked, and showing you the person and the approach behind it.</p>
@@ -672,43 +422,23 @@
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFaq(this)">
-      Do I need any experience to do this?
-      <span class="arrow">▾</span>
-    </div>
-    <div class="faq-answer">
-      <p>No, and honestly most of the people in this aren't traders when they start. I wasn't either. I'm not a math person, numbers used to scare me, but you don't actually need math for this. You just need to know if price is going up or down. That's it. So if that's what's stopping you, it's not a real reason.</p>
-    </div>
+    <div class="faq-question" onclick="toggleFaq(this)">Do I need any experience to do this?<span class="arrow">▾</span></div>
+    <div class="faq-answer"><p>No, and honestly most of the people in this aren't traders when they start. I wasn't either. I'm not a math person, numbers used to scare me, but you don't actually need math for this. You just need to know if price is going up or down. That's it. So if that's what's stopping you, it's not a real reason.</p></div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFaq(this)">
-      I don't really have money to invest right now, is this for me?
-      <span class="arrow">▾</span>
-    </div>
-    <div class="faq-answer">
-      <p>Here's the thing, most people who say that to me actually aren't broke, they're scared to risk money they can't afford to lose. Which is fair. So this isn't about throwing in whatever you have and hoping. It's about starting small and understanding exactly why every move is being made before you risk more. Take it or leave it, but that fear usually goes away once you actually see how it works.</p>
-    </div>
+    <div class="faq-question" onclick="toggleFaq(this)">I don't really have money to invest right now, is this for me?<span class="arrow">▾</span></div>
+    <div class="faq-answer"><p>Here's the thing, most people who say that to me actually aren't broke, they're scared to risk money they can't afford to lose. Which is fair. So this isn't about throwing in whatever you have and hoping. It's about starting small and understanding exactly why every move is being made before you risk more. Take it or leave it, but that fear usually goes away once you actually see how it works.</p></div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFaq(this)">
-      I've tried trading before and lost money, why would this be different?
-      <span class="arrow">▾</span>
-    </div>
-    <div class="faq-answer">
-      <p>If that's you, you're actually not alone, most people on this masterclass have already tried something and gotten burned somewhere. That's not on you. It's usually because whoever was guiding you was better at marketing than they were at actually trading. The person behind what I'm sharing is the opposite of that. He's not out here trying to sell courses, he's just on the charts. His whole thing is risking small to make big, not the other way around. So yeah, that's the actual difference.</p>
-    </div>
+    <div class="faq-question" onclick="toggleFaq(this)">I've tried trading before and lost money, why would this be different?<span class="arrow">▾</span></div>
+    <div class="faq-answer"><p>If that's you, you're actually not alone, most people on this masterclass have already tried something and gotten burned somewhere. That's not on you. It's usually because whoever was guiding you was better at marketing than they were at actually trading. The person behind what I'm sharing is the opposite of that. He's not out here trying to sell courses, he's just on the charts. His whole thing is risking small to make big, not the other way around. So yeah, that's the actual difference.</p></div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question" onclick="toggleFaq(this)">
-      Is this financial advice, or guaranteed to work?
-      <span class="arrow">▾</span>
-    </div>
-    <div class="faq-answer">
-      <p>No, and I'll always be straight with you about that. Past results don't guarantee future ones, that's just how it is, that's my disclaimer. I'm not going to sit here and tell you it's typical to turn $258 into $30,000 in three days, because it's not. But it happened. So I'd rather show you what's real and let you decide than promise you something I can't back up.</p>
-    </div>
+    <div class="faq-question" onclick="toggleFaq(this)">Is this financial advice, or guaranteed to work?<span class="arrow">▾</span></div>
+    <div class="faq-answer"><p>No, and I'll always be straight with you about that. Past results don't guarantee future ones, that's just how it is, that's my disclaimer. I'm not going to sit here and tell you it's typical to turn $258 into $30,000 in three days, because it's not. But it happened. So I'd rather show you what's real and let you decide than promise you something I can't back up.</p></div>
   </div>
 </section>
 
@@ -722,7 +452,6 @@
       <input type="text" placeholder="Name">
       <input type="email" placeholder="Email">
       <input type="tel" placeholder="Phone">
-
       <div class="consent-group">
         <div class="consent-item">
           <input type="checkbox" id="consent-advice" required>
@@ -733,7 +462,6 @@
           <label for="consent-reminders">I agree to receive reminders and updates by text and email so I don't miss the masterclass.</label>
         </div>
       </div>
-
       <button class="btn-gold" style="width:100%; border:none;">Save My Free Spot</button>
       <p class="fine-print">Your spot is reserved the moment you register.</p>
     </div>
@@ -749,13 +477,11 @@ function toggleFaq(el) {
   item.classList.toggle('open');
 }
 
-// Countdown to July 19, 5PM EST (EST = UTC-5)
 const targetDate = new Date("2026-07-19T17:00:00-05:00");
 
 function updateCountdown() {
   const now = new Date();
   let diff = targetDate - now;
-
   if (diff <= 0) {
     document.getElementById('cd-days').textContent = "00";
     document.getElementById('cd-hours').textContent = "00";
@@ -763,22 +489,18 @@ function updateCountdown() {
     document.getElementById('cd-secs').textContent = "00";
     return;
   }
-
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
   const mins = Math.floor((diff / (1000 * 60)) % 60);
   const secs = Math.floor((diff / 1000) % 60);
-
   document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
   document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
   document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
   document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
 }
-
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// SLIDER
 const sliderTrack = document.getElementById('sliderTrack');
 const slides = sliderTrack ? sliderTrack.children : [];
 const dotsWrap = document.getElementById('sliderDots');
@@ -795,24 +517,18 @@ if (sliderTrack && slides.length > 0) {
   function goToSlide(index) {
     currentSlide = (index + slides.length) % slides.length;
     sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-    document.querySelectorAll('.slider-dot').forEach((d, i) => {
-      d.classList.toggle('active', i === currentSlide);
-    });
+    document.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
   }
 
-  window.moveSlide = function(dir) {
-    goToSlide(currentSlide + dir);
-  };
+  window.moveSlide = function(dir) { goToSlide(currentSlide + dir); };
 
-  // autoplay
   let autoplay = setInterval(() => goToSlide(currentSlide + 1), 5000);
   const sliderEl = document.getElementById('midSlider');
   sliderEl.addEventListener('mouseenter', () => clearInterval(autoplay));
   sliderEl.addEventListener('mouseleave', () => { autoplay = setInterval(() => goToSlide(currentSlide + 1), 5000); });
 
-  // basic swipe support
   let startX = 0;
-  sliderEl.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  sliderEl.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive: true});
   sliderEl.addEventListener('touchend', e => {
     const diff = e.changedTouches[0].clientX - startX;
     if (diff > 50) moveSlide(-1);
