@@ -18,6 +18,7 @@
     --antique-gold: #b8923f;
     --text-dark: #2b241a;
     --text-muted: #6b6152;
+    --red-live: #d64545;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,16 +26,14 @@
 
   body {
     font-family: 'Barlow', sans-serif;
-    background: var(--cream-bg);
+    background: #ffffff;
     color: var(--text-dark);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
   img { max-width: 100%; }
-
   .serif { font-family: 'Instrument Serif', serif; }
-  .serif-italic { font-family: 'Instrument Serif', serif; font-style: italic; }
 
   .eyebrow {
     font-size: 0.7rem;
@@ -56,33 +55,7 @@
     opacity: 0.5;
   }
 
-  section { padding: 80px 24px; max-width: 900px; margin: 0 auto; }
-
-  /* HERO */
-  .hero { padding-top: 80px; padding-bottom: 60px; max-width: 1100px; }
-  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
-  .hero-copy { text-align: left; }
-  .hero-copy .eyebrow { justify-content: flex-start; }
-  .hero-copy .eyebrow::after { display: none; }
-  .hero h1 {
-    font-size: clamp(1.9rem, 5vw, 3rem);
-    line-height: 1.15;
-    font-weight: 700;
-    margin: 24px 0 16px;
-    color: var(--text-dark);
-  }
-  .hero h1 em { color: var(--gold); font-style: italic; font-weight: 700; }
-  .hero .sub-italic {
-    font-family: 'Instrument Serif', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(1.15rem, 3.2vw, 1.5rem);
-    color: var(--antique-gold);
-    margin-bottom: 20px;
-    line-height: 1.4;
-  }
-  .hero p.desc { max-width: 500px; margin: 0 0 28px; color: var(--text-muted); font-size: 1.02rem; line-height: 1.6; }
-  .datetime { letter-spacing: 0.15em; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 24px; }
+  section { padding: 72px 24px; max-width: 900px; margin: 0 auto; }
 
   .btn-gold {
     display: inline-block;
@@ -108,37 +81,161 @@
   }
   .btn-gold:active { transform: translateY(0); }
 
-  .hero-img-wrap { border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.3); }
-  .hero-img-wrap img { width: 100%; display: block; }
+  .inline-cta-wrap { text-align: center; margin-top: 40px; }
 
-  /* LEARN SECTION */
-  .learn-heading { text-align: center; margin-bottom: 48px; }
+  /* ============ STICKY COUNTDOWN BAR ============ */
+  .countdown-bar-wrap { position: sticky; top: 0; z-index: 999; display: flex; justify-content: center; padding: 10px 14px 0; }
+  .countdown-bar {
+    width: 100%; background: rgba(26, 22, 17, 0.55);
+    -webkit-backdrop-filter: blur(16px) saturate(160%); backdrop-filter: blur(16px) saturate(160%);
+    color: var(--pearl); padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: 14px; font-size: 0.85rem; letter-spacing: 0.03em; border: 1px solid rgba(201,162,75,0.25);
+    border-radius: 28px; box-shadow: 0 8px 32px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+  .live-tag { display: flex; align-items: center; gap: 6px; color: var(--bright-gold); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .live-dot {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--gold);
+    box-shadow: 0 0 0 0 rgba(201,162,75,0.6);
+    animation: pulse-dot 1.6s infinite;
+  }
+  @keyframes pulse-dot {
+    0% { box-shadow: 0 0 0 0 rgba(201,162,75,0.6); }
+    70% { box-shadow: 0 0 0 8px rgba(201,162,75,0); }
+    100% { box-shadow: 0 0 0 0 rgba(201,162,75,0); }
+  }
+  .countdown-bar .cd-date { color: var(--gold); font-weight: 700; font-size: 1rem; }
+  .countdown-timer { display: flex; gap: 8px; align-items: center; }
+  .countdown-timer .cd-unit {
+    background: rgba(201,162,75,0.10); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    border: 1px solid rgba(201,162,75,0.3); border-radius: 8px; padding: 4px 9px; font-weight: 700;
+    color: var(--bright-gold); min-width: 44px; text-align: center; font-variant-numeric: tabular-nums;
+  }
+  .countdown-timer .cd-unit span.num { display: block; font-size: 1rem; }
+  .countdown-timer .cd-unit span.unit-label { display: block; font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; color: #b8a97e; }
+
+  /* ============ HERO (form above the fold, side by side) ============ */
+  .hero { padding-top: 56px; padding-bottom: 50px; max-width: 1120px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-copy { text-align: left; }
+  .hero-copy .eyebrow { justify-content: flex-start; }
+  .hero-copy .eyebrow::after { display: none; }
+  .hero h1 {
+    font-size: clamp(1.9rem, 4.2vw, 2.7rem);
+    line-height: 1.18;
+    font-weight: 700;
+    margin: 22px 0 14px;
+    color: var(--text-dark);
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; font-weight: 700; }
+  .hero .sub-italic {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+    color: var(--antique-gold);
+    margin-bottom: 0;
+  }
+
+  .hero-form-card {
+    background: var(--pearl);
+    border: 1px solid rgba(201,162,75,0.25);
+    border-radius: 24px;
+    padding: 32px 28px;
+    box-shadow: 0 30px 60px -24px rgba(0,0,0,0.2);
+    text-align: left;
+    max-width: 440px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .hero-form-card .form-heading {
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .hero-form-card .form-subtext {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+
+  /* scarcity bar */
+  .scarcity-wrap { margin-bottom: 20px; }
+  .scarcity-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .scarcity-label .spots-left { color: var(--red-live); font-weight: 700; }
+  .scarcity-track {
+    width: 100%;
+    height: 8px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .scarcity-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--bright-gold));
+    border-radius: 10px;
+    transition: width 0.6s ease;
+  }
+
+  .form-wrap input {
+    width: 100%; padding: 15px 18px; border-radius: 10px; border: 1px solid rgba(0,0,0,0.12);
+    margin-bottom: 12px; font-family: 'Barlow', sans-serif; font-size: 16px; background: #fff; min-height: 48px;
+  }
+  .form-wrap input:focus { outline: 2px solid var(--gold); }
+
+  .consent-group { text-align: left; margin: 4px 0 14px; }
+  .consent-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+  .consent-item input[type="checkbox"] { width: 19px; height: 19px; min-width: 19px; margin-top: 2px; accent-color: var(--gold); cursor: pointer; }
+  .consent-item label { font-size: 0.78rem; line-height: 1.45; color: var(--text-muted); cursor: pointer; }
+  .fine-print { font-size: 0.72rem; color: var(--text-muted); margin-top: 12px; text-align: center; }
+
+  /* ============ LEARN / STEPS SECTION ============ */
+  .learn-heading { text-align: center; margin-bottom: 44px; }
   .learn-heading h2 { font-size: clamp(1.6rem, 4.5vw, 2.2rem); font-weight: 700; margin-top: 16px; }
   .learn-heading h2 em { color: var(--gold); font-style: italic; font-weight: 700; }
   .learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .learn-card { background: var(--pearl); border: 1px solid rgba(201,162,75,0.2); border-radius: 16px; padding: 28px; }
-  .learn-card .icon { color: var(--gold); font-size: 1.3rem; margin-bottom: 12px; }
+  .learn-card { background: var(--pearl); border: 1px solid rgba(201,162,75,0.2); border-radius: 16px; padding: 26px; position: relative; box-shadow: 0 12px 28px -14px rgba(43,36,26,0.18); }
+  .learn-card .step-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--gold); color: var(--deep-noir); font-weight: 700; font-size: 0.85rem;
+    margin-bottom: 14px;
+  }
+  .learn-card .step-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--antique-gold); font-weight: 700; margin-bottom: 6px; display: block; }
   .learn-card p { color: var(--text-dark); font-size: 0.98rem; line-height: 1.55; }
 
-  /* FOR YOU IF */
+  /* ============ FOR YOU IF ============ */
   .qualify-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
-  .qualify-card { background: linear-gradient(135deg, var(--champagne), #ecdcb8); border-radius: 20px; padding: 44px 36px; }
-  .qualify-card h3 { font-size: clamp(1.5rem, 4vw, 1.9rem); font-weight: 700; margin-bottom: 20px; }
+  .qualify-card { background: linear-gradient(135deg, var(--champagne), #ecdcb8); border-radius: 20px; padding: 40px 34px; box-shadow: 0 18px 40px -18px rgba(184,146,63,0.35); }
+  .qualify-card h3 { font-size: clamp(1.5rem, 4vw, 1.9rem); font-weight: 700; margin-bottom: 18px; }
   .qualify-card h3 em { color: var(--gold); font-style: italic; font-weight: 700; }
   .qualify-list { list-style: none; }
   .qualify-list li { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-size: 0.98rem; }
   .qualify-list li:last-child { border-bottom: none; }
   .check { color: var(--deep-noir); background: var(--gold); border-radius: 50%; min-width: 20px; height: 20px; display:flex; align-items:center; justify-content:center; font-size: 0.7rem; margin-top: 2px;}
 
-  .disqualify-card { background: var(--obsidian); border-radius: 20px; padding: 44px 36px; color: var(--champagne); }
-  .disqualify-card h3 { font-size: clamp(1.5rem, 4vw, 1.9rem); font-weight: 700; margin-bottom: 20px; color: var(--pearl); }
+  .disqualify-card { background: var(--obsidian); border-radius: 20px; padding: 40px 34px; color: var(--champagne); box-shadow: 0 18px 40px -18px rgba(20,17,13,0.5); }
+  .disqualify-card h3 { font-size: clamp(1.5rem, 4vw, 1.9rem); font-weight: 700; margin-bottom: 18px; color: var(--pearl); }
   .disqualify-card h3 em { color: var(--gold); font-style: italic; font-weight: 700; }
   .disqualify-list { list-style: none; }
   .disqualify-list li { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 0.98rem; color: #d8cdb8; }
   .disqualify-list li:last-child { border-bottom: none; }
   .cross { color: var(--gold); min-width: 20px; }
 
-  /* MID PHOTO SLIDER */
+  /* ============ SLIDER ============ */
   .mid-slider { position: relative; width: 100%; max-width: 100%; overflow: hidden; background: var(--obsidian); touch-action: pan-y; }
   .slider-track { display: flex; transition: transform 0.5s ease; }
   .slider-slide { min-width: 100%; flex-shrink: 0; }
@@ -157,14 +254,14 @@
   .slider-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(250,246,238,0.4); cursor: pointer; transition: background 0.2s ease, transform 0.2s ease; }
   .slider-dot.active { background: var(--gold); transform: scale(1.3); }
 
-  /* BIO */
+  /* ============ BIO (shortened, 2 rows) ============ */
   .bio { text-align: center; }
-  .bio-intro { max-width: 640px; margin: 0 auto 56px; }
+  .bio-intro { max-width: 640px; margin: 0 auto 48px; }
   .bio .eyebrow { margin-bottom: 12px; }
   .bio h2 { font-size: clamp(1.7rem, 4.5vw, 2.4rem); font-weight: 700; margin-bottom: 16px; }
   .bio h2 em { color: var(--gold); font-style: italic; font-weight: 700; }
 
-  .bio-row { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 48px; align-items: center; text-align: left; margin-bottom: 64px; }
+  .bio-row { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 44px; align-items: center; text-align: left; margin-bottom: 44px; }
   .bio-row.reverse { grid-template-columns: 1.15fr 0.85fr; }
   .bio-row.reverse .bio-row-img { order: 2; }
   .bio-row.reverse .bio-row-text { order: 1; }
@@ -172,13 +269,13 @@
   .bio-row-img { border-radius: 18px; overflow: hidden; box-shadow: 0 24px 48px -16px rgba(0,0,0,0.25); }
   .bio-row-img img { width: 100%; display: block; aspect-ratio: 4/5; object-fit: cover; }
   .bio-row-text .bio-kicker { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--antique-gold); font-weight: 700; margin-bottom: 10px; display: block; }
-  .bio-row-text p { font-size: 1.02rem; line-height: 1.75; color: var(--text-dark); font-weight: 600; }
+  .bio-row-text p { font-size: 1.02rem; line-height: 1.7; color: var(--text-dark); font-weight: 600; }
 
-  /* FAQ */
+  /* ============ FAQ ============ */
   .faq-heading { text-align: center; margin-bottom: 40px; }
   .faq-heading h2 { font-size: clamp(1.6rem, 4.5vw, 2.2rem); font-weight: 700; margin-top: 16px; }
   .faq-heading h2 em { color: var(--gold); font-style: italic; font-weight: 700; }
-  .faq-item { background: var(--pearl); border: 1px solid rgba(201,162,75,0.2); border-radius: 14px; margin-bottom: 14px; overflow: hidden; }
+  .faq-item { background: var(--pearl); border: 1px solid rgba(201,162,75,0.2); border-radius: 14px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 10px 24px -14px rgba(43,36,26,0.15); }
   .faq-question {
     padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px;
     cursor: pointer; font-weight: 600; font-size: 0.98rem; line-height: 1.4;
@@ -190,69 +287,32 @@
   .faq-item.open .faq-answer { max-height: 500px; padding-bottom: 20px; }
   .faq-answer p { color: var(--text-muted); line-height: 1.6; font-size: 0.92rem; }
 
-  /* FINAL CTA */
-  .final-cta { background: linear-gradient(160deg, var(--champagne), #f0dfb8); border-radius: 28px; text-align: center; padding: 64px 32px; margin-bottom: 60px; }
+  /* ============ FINAL CTA ============ */
+  .final-cta { background: linear-gradient(160deg, var(--champagne), #f0dfb8); border-radius: 28px; text-align: center; padding: 60px 32px; margin-bottom: 60px; box-shadow: 0 20px 44px -20px rgba(184,146,63,0.35); }
   .final-cta .eyebrow { margin-bottom: 12px; }
   .final-cta h2 { font-size: clamp(1.7rem, 4.5vw, 2.3rem); font-weight: 700; margin-bottom: 16px; }
   .final-cta h2 em { color: var(--gold); font-style: italic; font-weight: 700; }
-  .final-cta p.sub { color: var(--text-muted); margin-bottom: 32px; }
-
-  .form-wrap { max-width: 380px; margin: 0 auto; }
-  .form-wrap input {
-    width: 100%; padding: 15px 18px; border-radius: 10px; border: 1px solid rgba(0,0,0,0.12);
-    margin-bottom: 14px; font-family: 'Barlow', sans-serif; font-size: 16px; background: var(--pearl); min-height: 48px;
-  }
-  .form-wrap input:focus { outline: 2px solid var(--gold); }
-
-  .consent-group { text-align: left; margin: 4px 0 16px; }
-  .consent-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
-  .consent-item input[type="checkbox"] { width: 20px; height: 20px; min-width: 20px; margin-top: 2px; accent-color: var(--gold); cursor: pointer; }
-  .consent-item label { font-size: 0.82rem; line-height: 1.5; color: var(--text-muted); cursor: pointer; }
-  .fine-print { font-size: 0.75rem; color: var(--text-muted); margin-top: 16px; }
+  .final-cta p.sub { color: var(--text-muted); margin-bottom: 28px; }
 
   footer { text-align: center; padding: 40px 24px; font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.05em; }
 
-  /* STICKY COUNTDOWN BAR */
-  .countdown-bar-wrap { position: sticky; top: 0; z-index: 999; display: flex; justify-content: center; padding: 10px 14px 0; }
-  .countdown-bar {
-    width: 100%; background: rgba(26, 22, 17, 0.55);
-    -webkit-backdrop-filter: blur(16px) saturate(160%); backdrop-filter: blur(16px) saturate(160%);
-    color: var(--pearl); padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-    gap: 16px; font-size: 0.85rem; letter-spacing: 0.03em; border: 1px solid rgba(201,162,75,0.25);
-    border-radius: 28px; box-shadow: 0 8px 32px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
-  }
-  .countdown-bar .cd-label { color: #d8cdb8; font-weight: 500; }
-  .countdown-bar .cd-date { color: var(--gold); font-weight: 700; }
-  .countdown-timer { display: flex; gap: 8px; align-items: center; }
-  .countdown-timer .cd-unit {
-    background: rgba(201,162,75,0.10); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-    border: 1px solid rgba(201,162,75,0.3); border-radius: 8px; padding: 4px 9px; font-weight: 700;
-    color: var(--bright-gold); min-width: 44px; text-align: center; font-variant-numeric: tabular-nums;
-  }
-  .countdown-timer .cd-unit span.num { display: block; font-size: 1rem; }
-  .countdown-timer .cd-unit span.unit-label { display: block; font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; color: #b8a97e; }
-
   /* ============ RESPONSIVE ============ */
-
   @media (max-width: 800px) {
-    .hero-grid { grid-template-columns: 1fr; }
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
     .hero-copy { text-align: center; }
     .hero-copy .eyebrow { justify-content: center; }
     .hero-copy .eyebrow::after { display: flex; }
-    .hero p.desc { margin: 0 auto 28px; }
     .qualify-grid { grid-template-columns: 1fr; }
-
-    .bio-row, .bio-row.reverse { grid-template-columns: 1fr; gap: 20px; margin-bottom: 40px; }
+    .bio-row, .bio-row.reverse { grid-template-columns: 1fr; gap: 20px; margin-bottom: 36px; }
     .bio-row.reverse .bio-row-img, .bio-row.reverse .bio-row-text,
     .bio-row .bio-row-img, .bio-row .bio-row-text { order: initial; }
     .bio-row-img img { aspect-ratio: 16/10; }
   }
 
   @media (max-width: 640px) {
-    section { padding: 52px 18px; }
-    .hero { padding-top: 32px; padding-bottom: 40px; }
-    .hero-copy .btn-gold { width: 100%; text-align: center; }
-    .hero-img-wrap { max-width: 340px; margin: 0 auto; }
+    section { padding: 48px 18px; }
+    .hero { padding-top: 22px; padding-bottom: 32px; }
+    .hero-form-card { padding: 24px 20px; border-radius: 20px; max-width: 100%; }
 
     .learn-grid { grid-template-columns: 1fr; gap: 14px; }
     .learn-card { padding: 22px; }
@@ -266,30 +326,30 @@
     .slider-arrow.next { right: 8px; }
     .slider-dots { bottom: 12px; }
 
-    .bio-intro { margin-bottom: 36px; }
+    .bio-intro { margin-bottom: 32px; }
     .bio-row-text p { font-size: 0.95rem; line-height: 1.65; }
 
     .faq-question { font-size: 0.92rem; padding: 16px 16px; }
     .faq-answer { padding: 0 16px; }
     .faq-answer p { font-size: 0.88rem; }
 
-    .final-cta { padding: 40px 20px; border-radius: 22px; }
-    .form-wrap { max-width: 100%; }
+    .final-cta { padding: 36px 18px; border-radius: 22px; }
 
-    .countdown-bar-wrap { padding: 8px 8px 0; }
-    .countdown-bar { font-size: 0.68rem; padding: 10px 12px; gap: 6px; border-radius: 20px; justify-content: space-between; }
-    .countdown-bar .cd-label { display: none; }
-    .countdown-bar .cd-date { font-size: 0.65rem; white-space: nowrap; }
-    .countdown-timer { gap: 5px; }
-    .countdown-timer .cd-unit { padding: 3px 6px; min-width: 30px; }
-    .countdown-timer .cd-unit span.num { font-size: 0.8rem; }
-    .countdown-timer .cd-unit span.unit-label { font-size: 0.48rem; }
+    .countdown-bar-wrap { padding: 6px 6px 0; }
+    .countdown-bar { font-size: 0.62rem; padding: 8px 10px; gap: 8px; border-radius: 18px; justify-content: center; }
+    .live-tag { gap: 3px; margin-right: -2px; }
+    .countdown-bar .cd-date { font-size: 0.8rem; white-space: nowrap; }
+    .countdown-timer { gap: 4px; }
+    .countdown-timer .cd-unit { padding: 2px 5px; min-width: 26px; }
+    .countdown-timer .cd-unit span.num { font-size: 0.72rem; }
+    .countdown-timer .cd-unit span.unit-label { font-size: 0.42rem; }
+    .live-tag span.live-text { display: none; }
   }
 
   @media (max-width: 380px) {
-    .hero h1 { font-size: 1.7rem; }
-    .countdown-bar .cd-date { font-size: 0.6rem; }
-    .countdown-timer .cd-unit { min-width: 26px; padding: 3px 5px; }
+    .hero h1 { font-size: 1.65rem; }
+    .countdown-bar .cd-date { font-size: 0.72rem; }
+    .countdown-timer .cd-unit { min-width: 24px; padding: 2px 4px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -302,7 +362,7 @@
 <!-- STICKY COUNTDOWN BAR -->
 <div class="countdown-bar-wrap">
   <div class="countdown-bar">
-    <span class="cd-label">Free Masterclass</span>
+    <div class="live-tag"><span class="live-dot"></span><span class="live-text">Live Masterclass</span></div>
     <span class="cd-date">July 19, Sunday · 5PM EST</span>
     <div class="countdown-timer" id="countdown">
       <div class="cd-unit"><span class="num" id="cd-days">00</span><span class="unit-label">Days</span></div>
@@ -313,34 +373,80 @@
   </div>
 </div>
 
-<!-- HERO -->
-<section class="hero">
+<!-- HERO with form above the fold -->
+<section class="hero" id="register">
   <div class="hero-grid">
     <div class="hero-copy">
       <div class="eyebrow">Free Live Masterclass</div>
-      <h1 class="serif">How To Finally Stop <em>Stressing About Money</em></h1>
-      <div class="sub-italic">the trading approach that made it possible, without the mistakes that cost me before</div>
-      <p class="desc">The honest breakdown of how I went from working 15 hour shifts to building real income, and the exact approach my partner uses to risk less and keep more.</p>
-      <div class="datetime">July 19 · Sunday · 5PM EST</div>
-      <a href="#register" class="btn-gold">Save My Free Spot</a>
+      <h1 class="serif">Stop Worrying About Money & Learn The <em>6-Figure Commodity Trading Framework</em></h1>
+      <div class="sub-italic">without the mistakes that cost me before</div>
     </div>
-    <div class="hero-img-wrap">
-      <img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/460x600/1a1611/c9a24b?text=Lily'">
+
+    <div class="hero-form-card">
+      <div class="form-heading">Save Your Free Spot</div>
+      <div class="form-subtext">July 19 · Sunday · 5PM EST</div>
+
+      <div class="scarcity-wrap">
+        <div class="scarcity-label">
+          <span><span class="spots-left" id="spotsLeft">42</span> of 200 spots filled</span>
+          <span id="spotsPercent">21%</span>
+        </div>
+        <div class="scarcity-track"><div class="scarcity-fill" id="scarcityFill" style="width:21%;"></div></div>
+      </div>
+
+      <div class="form-wrap">
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <input type="tel" placeholder="Phone">
+
+        <div class="consent-group">
+          <div class="consent-item">
+            <input type="checkbox" id="consent-advice" required>
+            <label for="consent-advice">I understand this is not financial advice and is for educational purposes only.</label>
+          </div>
+          <div class="consent-item">
+            <input type="checkbox" id="consent-reminders" required>
+            <label for="consent-reminders">I agree to receive reminders and updates by text and email so I don't miss the masterclass.</label>
+          </div>
+        </div>
+
+        <button class="btn-gold" style="width:100%; border:none;">Save My Free Spot</button>
+        <p class="fine-print">Your spot is reserved the moment you register.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- LEARN THIS -->
+<!-- LEARN / STEPS -->
 <section>
   <div class="learn-heading">
     <div class="eyebrow">The Curriculum</div>
     <h2 class="serif">You're going to <em>learn</em> all this</h2>
   </div>
   <div class="learn-grid">
-    <div class="learn-card"><div class="icon">♥</div><p>You'll learn the actual reason most people lose money trading, and it's not the one you think.</p></div>
-    <div class="learn-card"><div class="icon">♥</div><p>You'll see exactly how a $5 risk turns into $40-50, and why that ratio matters more than anything else.</p></div>
-    <div class="learn-card"><div class="icon">♥</div><p>You'll understand why being scared of losing money is actually a good sign, not a reason to sit this out.</p></div>
-    <div class="learn-card"><div class="icon">♥</div><p>You'll get the same starting point I wish someone gave me before I figured it out the hard way.</p></div>
+    <div class="learn-card">
+      <div class="step-badge">1</div>
+      <span class="step-label">Step One</span>
+      <p>You'll learn the actual reason most people lose money trading, and it's not the one you think.</p>
+    </div>
+    <div class="learn-card">
+      <div class="step-badge">2</div>
+      <span class="step-label">Step Two</span>
+      <p>You'll see exactly how a $5 risk turns into $40-50, and why that ratio matters more than anything else.</p>
+    </div>
+    <div class="learn-card">
+      <div class="step-badge">3</div>
+      <span class="step-label">Step Three</span>
+      <p>You'll understand why being scared of losing money is actually a good sign, not a reason to sit this out.</p>
+    </div>
+    <div class="learn-card">
+      <div class="step-badge">4</div>
+      <span class="step-label">Step Four</span>
+      <p>You'll get the same starting point I wish someone gave me before I figured it out the hard way.</p>
+    </div>
+  </div>
+  <div class="inline-cta-wrap">
+    <a href="#register" class="btn-gold">Save My Free Spot</a>
   </div>
 </section>
 
@@ -373,16 +479,16 @@
 <!-- MID PHOTO SLIDER -->
 <div class="mid-slider" id="midSlider">
   <div class="slider-track" id="sliderTrack">
-    <div class="slider-slide"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/1200x640/1a1611/c9a24b?text=Lily+1'"></div>
-    <div class="slider-slide"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/1200x640/1a1611/c9a24b?text=Lily+2'"></div>
-    <div class="slider-slide"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/1200x640/1a1611/c9a24b?text=Lily+3'"></div>
+    <div class="slider-slide"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/1200x640/1a1611/c9a24b?text=Results+1'"></div>
+    <div class="slider-slide"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/1200x640/1a1611/c9a24b?text=Results+2'"></div>
+    <div class="slider-slide"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/1200x640/1a1611/c9a24b?text=Results+3'"></div>
   </div>
   <div class="slider-arrow prev" onclick="moveSlide(-1)">‹</div>
   <div class="slider-arrow next" onclick="moveSlide(1)">›</div>
   <div class="slider-dots" id="sliderDots"></div>
 </div>
 
-<!-- BIO -->
+<!-- BIO (shortened to 2 paragraphs) -->
 <section class="bio">
   <div class="bio-intro">
     <div class="eyebrow">Your Host</div>
@@ -393,24 +499,20 @@
     <div class="bio-row-img"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/500x625/1a1611/c9a24b?text=Lily'"></div>
     <div class="bio-row-text">
       <span class="bio-kicker">Where It Started</span>
-      <p>So a little about me. I grew up in a house where money was always tight, always a fight. My dad came here with $20 in his pocket. My mom worked in a factory. I know what it's like to feel like you don't have control over your own life. I actually spent a couple years in foster care as a kid because things at home were that unstable. So from a really young age I understood something most people don't figure out until way later, money isn't about being rich. It's about having options. I got rejected from eight jobs in a row, including McDonald's. I worked 15 hour shifts in fast food while going to university, and I still felt like I wasn't getting anywhere. Then one day I made $500 in 30 minutes trading. And I remember thinking, how do I justify working for $14 an hour when I just made that in half an hour. That was it for me. I quit my job. I dropped out of school. No plan B, just plan A.</p>
+      <p>I grew up in a house where money was always tight. My dad came here with $20 in his pocket, my mom worked in a factory, and I spent a couple years in foster care as a kid because things at home were that unstable. I got rejected from eight jobs in a row, including McDonald's, and worked 15 hour shifts in fast food while going to university. Then one day I made $500 in 30 minutes trading, and that was it for me. I quit my job. No plan B, just plan A.</p>
     </div>
   </div>
 
   <div class="bio-row reverse">
     <div class="bio-row-img"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/500x625/1a1611/c9a24b?text=Lily'"></div>
     <div class="bio-row-text">
-      <span class="bio-kicker">Why I Trust This</span>
-      <p>Since then I've built multiple businesses and helped hundreds of people generate real income. But honestly, a lot of where I am now comes down to someone I've known for years, someone I trust more than anyone else when it comes to this. I watched him go from having a regular 9-5 like everyone else to doing this full time. I've seen the entire transformation up close. What makes his approach different is the risk to reward, he's not out here throwing money at the market hoping something sticks. He's calculated. He risks small to make a lot more back. And he's not trying to sell anything, he's just genuinely good at what he does, which honestly makes me trust him more. I'm not naming him here, that part comes later.</p>
+      <span class="bio-kicker">Why I'm Doing This</span>
+      <p>A lot of where I am now comes down to someone I've known for years, someone whose approach to risk is calculated, not reckless, he's not naming him here, that part comes later. Because of him I've been able to build something real, and because I know what it feels like to be exactly where you are right now, I want to show you the same starting point.</p>
     </div>
   </div>
 
-  <div class="bio-row">
-    <div class="bio-row-img"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/500x625/1a1611/c9a24b?text=Lily'"></div>
-    <div class="bio-row-text">
-      <span class="bio-kicker">Why I'm Doing This</span>
-      <p>Because of him I've been able to actually build something real, and because I know what it feels like to be exactly where a lot of you are right now, I want to help the people who are in that same spot. So that's what this masterclass is. Me being honest about what actually worked, and showing you the person and the approach behind it.</p>
-    </div>
+  <div class="inline-cta-wrap">
+    <a href="#register" class="btn-gold">Save My Free Spot</a>
   </div>
 </section>
 
@@ -443,28 +545,12 @@
 </section>
 
 <!-- FINAL CTA -->
-<section id="register">
+<section>
   <div class="final-cta">
     <div class="eyebrow">The Invitation</div>
     <h2 class="serif">Ready To Actually <em>See How This Works?</em></h2>
     <p class="sub">Save your spot, it's free, and I'll walk you through everything live.</p>
-    <div class="form-wrap">
-      <input type="text" placeholder="Name">
-      <input type="email" placeholder="Email">
-      <input type="tel" placeholder="Phone">
-      <div class="consent-group">
-        <div class="consent-item">
-          <input type="checkbox" id="consent-advice" required>
-          <label for="consent-advice">I understand this is not financial advice and is for educational purposes only.</label>
-        </div>
-        <div class="consent-item">
-          <input type="checkbox" id="consent-reminders" required>
-          <label for="consent-reminders">I agree to receive reminders and updates by text and email so I don't miss the masterclass.</label>
-        </div>
-      </div>
-      <button class="btn-gold" style="width:100%; border:none;">Save My Free Spot</button>
-      <p class="fine-print">Your spot is reserved the moment you register.</p>
-    </div>
+    <a href="#register" class="btn-gold">Save My Free Spot</a>
   </div>
 </section>
 
@@ -477,16 +563,13 @@ function toggleFaq(el) {
   item.classList.toggle('open');
 }
 
+// Countdown to July 19, 5PM EST
 const targetDate = new Date("2026-07-19T17:00:00-05:00");
-
 function updateCountdown() {
   const now = new Date();
   let diff = targetDate - now;
   if (diff <= 0) {
-    document.getElementById('cd-days').textContent = "00";
-    document.getElementById('cd-hours').textContent = "00";
-    document.getElementById('cd-mins').textContent = "00";
-    document.getElementById('cd-secs').textContent = "00";
+    ["cd-days","cd-hours","cd-mins","cd-secs"].forEach(id => document.getElementById(id).textContent = "00");
     return;
   }
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -501,6 +584,7 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
+// SLIDER
 const sliderTrack = document.getElementById('sliderTrack');
 const slides = sliderTrack ? sliderTrack.children : [];
 const dotsWrap = document.getElementById('sliderDots');
@@ -513,13 +597,11 @@ if (sliderTrack && slides.length > 0) {
     dot.onclick = () => goToSlide(i);
     dotsWrap.appendChild(dot);
   }
-
   function goToSlide(index) {
     currentSlide = (index + slides.length) % slides.length;
     sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
     document.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
   }
-
   window.moveSlide = function(dir) { goToSlide(currentSlide + dir); };
 
   let autoplay = setInterval(() => goToSlide(currentSlide + 1), 5000);
@@ -535,6 +617,31 @@ if (sliderTrack && slides.length > 0) {
     else if (diff < -50) moveSlide(1);
   });
 }
+
+// SCARCITY COUNTER — starts at 42/200, randomly increases over time, capped near 197 so it never fully sells out
+let spotsFilled = 42;
+const totalSpots = 200;
+const maxSpots = 197;
+
+function updateScarcityUI() {
+  const percent = Math.round((spotsFilled / totalSpots) * 100);
+  const leftEl = document.getElementById('spotsLeft');
+  const pctEl = document.getElementById('spotsPercent');
+  const fillEl = document.getElementById('scarcityFill');
+  if (leftEl) leftEl.textContent = spotsFilled;
+  if (pctEl) pctEl.textContent = percent + '%';
+  if (fillEl) fillEl.style.width = percent + '%';
+}
+
+function randomlyIncreaseSpots() {
+  if (spotsFilled >= maxSpots) return;
+  const increment = Math.random() < 0.5 ? 1 : 2;
+  spotsFilled = Math.min(spotsFilled + increment, maxSpots);
+  updateScarcityUI();
+}
+
+updateScarcityUI();
+setInterval(randomlyIncreaseSpots, 25000 + Math.random() * 20000);
 </script>
 
 </body>
