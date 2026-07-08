@@ -3,564 +3,716 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lily Zaremba - Free Live Trading Masterclass</title>
+<title>Free Live Masterclass — Lily</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #F2EDE4;
-  --bg2: #EDE7DC;
-  --bg3: #E5DDD0;
-  --bg4: #D9D0C0;
-  --ink: #1A1814;
-  --ink2: #3D3A34;
-  --ink3: #6B6760;
-  --gold: #96720A;
-  --gold-b: #B8920F;
-  --gold-d: #6E5410;
-  --gold-light: #EDD99A;
-  --scar: #B04040;
-  --line: rgba(150,114,10,0.22);
-  --line2: rgba(26,24,20,0.1);
-  --serif: 'Playfair Display', serif;
-  --sans: 'Inter', sans-serif;
-  --mono: 'JetBrains Mono', monospace;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--ink2);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-a{color:inherit;text-decoration:none;}
+  :root {
+    --obsidian: #1a1611;
+    --gold: #c9a24b;
+    --bright-gold: #d4af5a;
+    --champagne: #f4e9d8;
+    --pearl: #faf6ee;
+    --cream-bg: #fdf6e9;
+    --deep-noir: #14110d;
+    --antique-gold: #b8923f;
+    --text-dark: #2b241a;
+    --text-muted: #6b6152;
+  }
 
-.gold-grad{
-  background:linear-gradient(135deg,#7A5C08 0%,#96720A 35%,#B8920F 65%,#6E5410 100%);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* LIQUID GLASS - light mode */
-.lg{
-  background:rgba(255,255,255,0.55);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  border:1px solid rgba(255,255,255,0.85);
-  position:relative;
-  overflow:hidden;
-  box-shadow:0 2px 16px rgba(26,24,20,0.06);
-}
-.lg::before{
-  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
-  background:linear-gradient(160deg,rgba(255,255,255,0.9) 0%,rgba(255,255,255,0.3) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,0.5) 100%);
-  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
-}
-.lg-strong{
-  background:rgba(255,255,255,0.72);
-  backdrop-filter:blur(40px);
-  -webkit-backdrop-filter:blur(40px);
-  border:1px solid rgba(255,255,255,0.9);
-  position:relative;overflow:hidden;
-  box-shadow:0 4px 28px rgba(26,24,20,0.08);
-}
-.lg-strong::before{
-  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
-  background:linear-gradient(160deg,rgba(255,255,255,0.95) 0%,rgba(255,255,255,0.4) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,0.6) 100%);
-  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
-}
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--cream-bg);
+    color: var(--text-dark);
+    -webkit-font-smoothing: antialiased;
+  }
 
-/* AMBIENT */
-.glow-1{position:fixed;top:-10%;left:-5%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,32,0.08) 0%,transparent 70%);pointer-events:none;z-index:0;}
-.glow-2{position:fixed;bottom:-15%;right:-5%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(184,146,15,0.06) 0%,transparent 70%);pointer-events:none;z-index:0;}
+  .serif { font-family: 'Instrument Serif', serif; }
+  .serif-italic { font-family: 'Instrument Serif', serif; font-style: italic; }
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;}
-.nav-inner{margin:14px auto;max-width:1160px;display:flex;align-items:center;justify-content:space-between;border-radius:999px;padding:10px 10px 10px 24px;}
-.nav-logo{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--ink);}
-.nav-links{display:flex;align-items:center;gap:28px;}
-.nav-links a{font-size:13px;color:var(--ink2);opacity:0.7;letter-spacing:0.01em;transition:opacity 0.2s;}
-.nav-links a:hover{opacity:1;}
-.nav-cta{background:linear-gradient(135deg,#B8920F,#6E5410);color:#fff;font-size:12.5px;font-weight:700;padding:9px 22px;border-radius:999px;transition:opacity 0.2s;opacity:1;}
-.nav-cta:hover{opacity:0.88;}
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--antique-gold);
+    text-align: center;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: '';
+    height: 1px;
+    width: 40px;
+    background: var(--antique-gold);
+    opacity: 0.5;
+  }
 
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;padding:140px 40px 100px;position:relative;z-index:1;background:linear-gradient(160deg,#F5EFE6 0%,#EDE6D8 55%,#E6DCC8 100%);}
-.hero-inner{max-width:1160px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+  section { padding: 80px 24px; max-width: 900px; margin: 0 auto; }
 
-.badge{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:7px 18px;font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:26px;background:var(--gold-light);border:1px solid rgba(184,146,15,0.25);}
-.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px rgba(184,146,15,0.5);animation:pulse 2s ease-in-out infinite;flex-shrink:0;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.25;}}
+  /* HERO */
+  .hero {
+    padding-top: 80px;
+    padding-bottom: 60px;
+    max-width: 1100px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-copy { text-align: left; }
+  .hero-copy .eyebrow { justify-content: flex-start; }
+  .hero-copy .eyebrow::after { display: none; }
+  .hero h1 {
+    font-size: 3rem;
+    line-height: 1.15;
+    font-weight: 700;
+    margin: 24px 0 16px;
+    color: var(--text-dark);
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; font-weight: 700; }
+  .hero .sub-italic {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--antique-gold);
+    margin-bottom: 20px;
+  }
+  .hero p.desc {
+    max-width: 500px;
+    margin: 0 0 28px;
+    color: var(--text-muted);
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+  .datetime {
+    letter-spacing: 0.15em;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
 
-h1{font-family:var(--serif);font-weight:500;font-style:italic;font-size:clamp(34px,3.6vw,50px);line-height:1.1;color:var(--ink);letter-spacing:-0.01em;margin-bottom:18px;}
-.hero-sub{font-size:15px;font-weight:300;color:var(--ink2);opacity:0.8;margin-bottom:30px;line-height:1.8;max-width:480px;}
+  .btn-gold {
+    display: inline-block;
+    background: linear-gradient(180deg, var(--bright-gold), var(--gold));
+    color: var(--deep-noir);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    padding: 16px 40px;
+    border-radius: 40px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(201, 162, 75, 0.35);
+    transition: transform 0.2s ease;
+  }
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px 2px rgba(184, 146, 63, 0.3), 0 0 22px 5px rgba(139, 105, 20, 0.18), 0 8px 20px rgba(201, 162, 75, 0.3);
+  }
+  .btn-gold {
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
 
-.datetime{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11.5px;color:var(--gold);letter-spacing:0.04em;padding:11px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:26px;}
-.datetime svg{width:13px;height:13px;stroke:var(--gold);flex-shrink:0;fill:none;}
+  .hero-img-wrap {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.3);
+  }
+  .hero-img-wrap img { width: 100%; display: block; }
 
-.countdown{display:flex;gap:9px;margin-bottom:26px;}
-.cd-block{border-radius:10px;padding:14px 14px 12px;min-width:66px;text-align:center;background:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 12px rgba(26,24,20,0.06);}
-.cd-num{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums;}
-.cd-label{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;margin-top:3px;}
+  /* LEARN SECTION */
+  .learn-heading { text-align: center; margin-bottom: 48px; }
+  .learn-heading h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-top: 16px;
+  }
+  .learn-heading h2 em { color: var(--gold); font-style: italic; font-weight: 700; }
 
-.trust-strip{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
-.avatars{display:flex;}
-.avatars span{width:26px;height:26px;border-radius:50%;border:2px solid var(--bg);margin-left:-6px;background:linear-gradient(135deg,var(--gold-d),var(--bg3));}
-.avatars span:first-child{margin-left:0;}
-.stars{font-size:13px;letter-spacing:1px;}
-.trust-text{font-size:11.5px;color:var(--ink3);}
+  .learn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .learn-card {
+    background: var(--pearl);
+    border: 1px solid rgba(201,162,75,0.2);
+    border-radius: 16px;
+    padding: 28px;
+  }
+  .learn-card .icon {
+    color: var(--gold);
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+  .learn-card p { color: var(--text-dark); font-size: 0.98rem; line-height: 1.55; }
 
-.chips{display:flex;gap:7px;flex-wrap:wrap;}
-.chip{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:5px 13px;font-size:11px;color:var(--ink2);background:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.85);box-shadow:0 1px 6px rgba(26,24,20,0.05);}
-.chip svg{width:11px;height:11px;stroke:var(--gold);fill:none;}
+  /* FOR YOU IF */
+  .qualify-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .qualify-card {
+    background: linear-gradient(135deg, var(--champagne), #ecdcb8);
+    border-radius: 20px;
+    padding: 44px 36px;
+  }
+  .qualify-card h3 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .qualify-card h3 em { color: var(--gold); font-style: italic; font-weight: 700; }
+  .qualify-list { list-style: none; }
+  .qualify-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.98rem;
+  }
+  .qualify-list li:last-child { border-bottom: none; }
+  .check { color: var(--deep-noir); background: var(--gold); border-radius: 50%; min-width: 20px; height: 20px; display:flex; align-items:center; justify-content:center; font-size: 0.7rem; margin-top: 2px;}
 
-/* FORM */
-.form-card{border-radius:18px;padding:34px 30px;}
-.form-badge{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;border:1px solid rgba(150,114,10,0.35);border-radius:999px;padding:4px 12px;margin-bottom:14px;background:var(--gold-light);color:#6E5410 !important;-webkit-text-fill-color:#6E5410 !important;}
-.form-title{font-family:var(--serif);font-size:21px;font-weight:500;font-style:italic;color:var(--ink);margin-bottom:6px;}
-.form-desc{font-size:12px;color:var(--ink3);line-height:1.65;margin-bottom:20px;}
-.form-divider{height:1px;background:var(--line2);margin-bottom:20px;}
-.field{margin-bottom:16px;}
-.field label{display:block;font-size:10.5px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px;}
-.field input,.field select{width:100%;background:rgba(255,255,255,0.7);border:1px solid rgba(26,24,20,0.12);border-radius:8px;padding:11px 13px;font-size:13px;color:var(--ink);font-family:var(--sans);outline:none;transition:border-color 0.2s;}
-.field input::placeholder{color:rgba(107,103,96,0.5);}
-.field input:focus,.field select:focus{border-color:var(--gold);}
-.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A6F1E' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-color:rgba(255,255,255,0.7);}
-.field select option{background:#fff;color:var(--ink);}
-.field-row{display:grid;grid-template-columns:100px 1fr;gap:8px;}
-.field-hint{font-size:10.5px;color:var(--ink3);opacity:0.6;margin-top:4px;}
-.field-double{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .disqualify-card {
+    background: var(--obsidian);
+    border-radius: 20px;
+    padding: 44px 36px;
+    color: var(--champagne);
+  }
+  .disqualify-card h3 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--pearl);
+  }
+  .disqualify-card h3 em { color: var(--gold); font-style: italic; font-weight: 700; }
+  .disqualify-list { list-style: none; }
+  .disqualify-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.98rem;
+    color: #d8cdb8;
+  }
+  .disqualify-list li:last-child { border-bottom: none; }
+  .cross { color: var(--gold); min-width: 20px; }
 
-.check-row{display:flex;align-items:flex-start;gap:9px;margin-bottom:10px;}
-.check-row input[type=checkbox]{width:14px;height:14px;accent-color:var(--gold);flex-shrink:0;margin-top:2px;cursor:pointer;}
-.check-row span{font-size:11px;color:var(--ink3);line-height:1.55;}
+  /* MID PHOTO SLIDER */
+  .mid-slider {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    background: var(--obsidian);
+  }
+  .slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  .slider-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+  }
+  .slider-slide img {
+    width: 100%;
+    display: block;
+    filter: grayscale(100%);
+    max-height: 640px;
+    object-fit: cover;
+  }
+  .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(20,17,13,0.55);
+    border: 1px solid rgba(201,162,75,0.4);
+    color: var(--gold);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    z-index: 5;
+    transition: background 0.2s ease;
+  }
+  .slider-arrow:hover { background: rgba(201,162,75,0.25); }
+  .slider-arrow.prev { left: 20px; }
+  .slider-arrow.next { right: 20px; }
+  .slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 5;
+  }
+  .slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(250,246,238,0.4);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .slider-dot.active {
+    background: var(--gold);
+    transform: scale(1.3);
+  }
+  @media (max-width: 640px) {
+    .slider-slide img { max-height: 420px; }
+    .slider-arrow { width: 36px; height: 36px; font-size: 0.95rem; }
+    .slider-arrow.prev { left: 10px; }
+    .slider-arrow.next { right: 10px; }
+  }
 
-.btn-submit{width:100%;background:linear-gradient(135deg,#B8920F,#96720A,#6E5410);color:#fff;font-weight:700;font-size:13.5px;padding:14px;border-radius:8px;border:none;cursor:pointer;letter-spacing:0.01em;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity 0.2s;box-shadow:0 4px 16px rgba(150,114,10,0.28);}
-.btn-submit:hover{opacity:0.9;}
-.btn-submit svg{width:15px;height:15px;stroke:#fff;stroke-width:2.5;fill:none;}
-.scarcity{text-align:center;font-size:10.5px;color:var(--scar);margin-top:9px;letter-spacing:0.02em;}
-.form-note{text-align:center;font-size:10px;color:var(--ink3);opacity:0.5;margin-top:12px;line-height:1.6;}
+  /* BIO */
+  .bio { text-align: center; }
+  .bio .eyebrow { margin-bottom: 12px; }
+  .bio h2 { font-size: 2.4rem; font-weight: 700; margin-bottom: 32px; }
+  .bio h2 em { color: var(--gold); font-style: italic; font-weight: 700; }
+  .bio-text { text-align: left; max-width: 680px; margin: 0 auto; }
+  .bio-text p { margin-bottom: 20px; line-height: 1.7; color: var(--text-dark); font-size: 1.05rem; font-weight: 600; }
+  .bio-text p:first-child::first-letter {
+    font-family: 'Instrument Serif', serif;
+    font-size: 3.2rem;
+    float: left;
+    line-height: 0.8;
+    margin-right: 8px;
+    margin-top: 8px;
+    color: var(--gold);
+  }
 
-/* SECTIONS */
-.section{padding:96px 40px;position:relative;z-index:1;border-top:1px solid var(--line2);}
-.section-wrap{max-width:1100px;margin:0 auto;}
-.s-eye{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:10px;}
-.s-title{font-family:var(--serif);font-weight:500;font-style:italic;font-size:clamp(26px,2.8vw,36px);color:var(--ink);text-align:center;margin-bottom:52px;}
+  /* FAQ */
+  .faq-heading { text-align: center; margin-bottom: 40px; }
+  .faq-heading h2 { font-size: 2.2rem; font-weight: 700; margin-top: 16px; }
+  .faq-heading h2 em { color: var(--gold); font-style: italic; font-weight: 700; }
 
-/* AGENDA */
-.agenda{max-width:720px;margin:0 auto;}
-.ag-row{display:flex;gap:26px;align-items:flex-start;padding:26px 0;border-bottom:1px solid var(--line2);}
-.ag-row:last-child{border-bottom:none;}
-.ag-num{font-family:var(--serif);font-style:italic;font-size:30px;width:48px;flex-shrink:0;line-height:1;}
-.ag-title{font-family:var(--serif);font-size:17px;font-weight:500;font-style:italic;color:var(--ink);margin-bottom:4px;}
-.ag-desc{font-size:13px;color:var(--ink3);}
+  .faq-item {
+    background: var(--pearl);
+    border: 1px solid rgba(201,162,75,0.2);
+    border-radius: 14px;
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .faq-question {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .faq-question .arrow { color: var(--gold); transition: transform 0.25s ease; font-size: 0.9rem; }
+  .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 24px;
+  }
+  .faq-item.open .faq-answer { max-height: 400px; padding-bottom: 22px; }
+  .faq-answer p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
 
-/* PILLARS */
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:20px;}
-.pillar{border-radius:14px;padding:26px 22px;transition:box-shadow 0.25s;}
-.pillar:hover{box-shadow:0 6px 24px rgba(26,24,20,0.1);}
-.p-icon{width:34px;height:34px;border:1px solid rgba(184,146,15,0.3);border-radius:7px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;background:var(--gold-light);}
-.p-icon svg{width:15px;height:15px;stroke:var(--gold);fill:none;}
-.p-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
-.p-tag{font-size:9.5px;border:1px solid var(--line2);border-radius:999px;padding:3px 9px;color:var(--ink3);}
-.p-title{font-family:var(--serif);font-size:16px;font-weight:500;font-style:italic;color:var(--ink);margin-bottom:6px;}
-.p-desc{font-size:12.5px;color:var(--ink3);}
-.bonus-row{border-radius:10px;padding:18px 22px;display:flex;align-items:center;gap:14px;background:var(--gold-light);border:1px solid rgba(184,146,15,0.2);}
-.bonus-row svg{width:18px;height:18px;stroke:var(--gold);fill:none;flex-shrink:0;}
-.bonus-row p{font-size:13px;color:var(--ink2);}
-.bonus-row strong{color:var(--ink);}
+  /* FINAL CTA */
+  .final-cta {
+    background: linear-gradient(160deg, var(--champagne), #f0dfb8);
+    border-radius: 28px;
+    text-align: center;
+    padding: 64px 32px;
+    margin-bottom: 60px;
+  }
+  .final-cta .eyebrow { margin-bottom: 12px; }
+  .final-cta h2 { font-size: 2.3rem; font-weight: 700; margin-bottom: 16px; }
+  .final-cta h2 em { color: var(--gold); font-style: italic; font-weight: 700; }
+  .final-cta p.sub { color: var(--text-muted); margin-bottom: 32px; }
 
-/* HOST */
-.host-card{max-width:580px;margin:0 auto;border-radius:16px;padding:40px 36px;text-align:center;}
-.host-photo{width:120px;height:120px;border-radius:50%;border:2px solid var(--gold);margin:0 auto 20px;overflow:hidden;display:block;}
-.host-photo img{width:100%;height:100%;object-fit:cover;display:block;}
-.host-name{font-family:var(--serif);font-size:26px;font-weight:500;font-style:italic;color:var(--ink);margin-bottom:5px;}
-.host-cred{font-family:var(--mono);font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px;}
-.host-bio p{font-size:13.5px;color:var(--ink2);line-height:1.8;}
-.host-bio p+p{margin-top:10px;}
-.host-stats{display:flex;justify-content:center;margin-top:28px;padding-top:24px;border-top:1px solid var(--line2);}
-.hs{flex:1;text-align:center;padding:0 16px;}
-.hs+.hs{border-left:1px solid var(--line2);}
-.hs-num{font-family:var(--mono);font-size:18px;font-weight:500;}
-.hs-label{font-size:9.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);margin-top:3px;}
+  .form-wrap { max-width: 380px; margin: 0 auto; }
+  .form-wrap input {
+    width: 100%;
+    padding: 15px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.12);
+    margin-bottom: 14px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    background: var(--pearl);
+  }
+  .form-wrap input:focus { outline: 2px solid var(--gold); }
+  .fine-print { font-size: 0.75rem; color: var(--text-muted); margin-top: 16px; }
 
-/* TESTIMONIALS */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-.t-card{border-radius:12px;padding:26px 22px;}
-.t-stars{font-size:12px;letter-spacing:2px;margin-bottom:13px;}
-.t-quote{font-family:var(--serif);font-style:italic;font-size:14.5px;color:var(--ink);line-height:1.7;margin-bottom:16px;}
-.t-name{font-size:12.5px;font-weight:600;color:var(--ink);}
-.t-result{font-size:10.5px;margin-top:3px;letter-spacing:0.02em;}
-.testi-row2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px;max-width:680px;margin-left:auto;margin-right:auto;}
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
 
-/* FINAL CTA */
-.final-cta{padding:96px 40px;text-align:center;position:relative;z-index:1;border-top:1px solid var(--line2);background:linear-gradient(160deg,var(--bg) 0%,var(--bg2) 100%);}
-.final-sub{font-family:var(--serif);font-style:italic;font-weight:300;font-size:16px;color:var(--ink3);margin-bottom:20px;}
-.final-cta .s-title{margin-bottom:28px;}
-.btn-gold{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#B8920F,#96720A,#6E5410);color:#fff;font-weight:700;font-size:14px;padding:15px 38px;border-radius:7px;border:none;cursor:pointer;transition:opacity 0.2s;box-shadow:0 4px 20px rgba(150,114,10,0.25);}
-.btn-gold:hover{opacity:0.9;}
-.btn-gold svg{width:15px;height:15px;stroke:#fff;stroke-width:2.5;fill:none;}
-.final-scarcity{font-size:11px;color:var(--scar);margin-top:11px;}
+  @media (max-width: 800px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-copy { text-align: center; }
+    .hero-copy .eyebrow { justify-content: center; }
+    .hero-copy .eyebrow::after { display: flex; }
+    .hero p.desc { margin: 0 auto 28px; }
+    .qualify-grid { grid-template-columns: 1fr; }
+  }
 
-/* STICKY */
-.sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:99;padding:10px 40px;display:flex;align-items:center;justify-content:center;gap:18px;transform:translateY(100%);transition:transform 0.3s ease;border-top:1px solid rgba(26,24,20,0.1);}
-.sticky-bar.vis{transform:translateY(0);}
-.sticky-bar span{font-size:12px;color:var(--ink2);}
-.sticky-cta{background:linear-gradient(135deg,#B8920F,#6E5410);color:#fff;font-weight:700;font-size:12px;padding:9px 22px;border-radius:999px;white-space:nowrap;}
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 2.1rem; }
+    .learn-grid { grid-template-columns: 1fr; }
+    .qualify-card, .disqualify-card { padding: 32px 24px; }
+    section { padding: 56px 20px; }
+    .bio h2, .faq-heading h2, .final-cta h2 { font-size: 1.8rem; }
+  }
 
-/* FOOTER */
-footer{border-top:1px solid var(--line2);padding:44px 40px 80px;position:relative;z-index:1;background:var(--bg2);}
-.footer-links{display:flex;justify-content:center;gap:22px;margin-bottom:18px;flex-wrap:wrap;}
-.footer-links a{font-size:11px;color:var(--ink3);opacity:0.6;transition:opacity 0.2s;}
-.footer-links a:hover{opacity:1;}
-.disclaimer{max-width:600px;margin:0 auto;font-size:10px;line-height:1.8;color:var(--ink3);opacity:0.5;text-align:center;}
+  /* STICKY COUNTDOWN BAR */
+  .countdown-bar-wrap {
+    position: sticky;
+    top: 12px;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    padding: 0 16px;
+  }
+  .countdown-bar {
+    background: rgba(26, 22, 17, 0.55);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(16px) saturate(160%);
+    color: var(--pearl);
+    padding: 12px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    border: 1px solid rgba(201,162,75,0.25);
+    border-radius: 999px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
+    max-width: 100%;
+  }
+  .countdown-bar .cd-label {
+    color: #d8cdb8;
+    font-weight: 500;
+  }
+  .countdown-bar .cd-date {
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .countdown-timer {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .countdown-timer .cd-unit {
+    background: rgba(201,162,75,0.10);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(201,162,75,0.3);
+    border-radius: 8px;
+    padding: 4px 9px;
+    font-weight: 700;
+    color: var(--bright-gold);
+    min-width: 44px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .countdown-timer .cd-unit span.num { display: block; font-size: 1rem; }
+  .countdown-timer .cd-unit span.unit-label { display: block; font-size: 0.55rem; letter-spacing: 0.08em; text-transform: uppercase; color: #b8a97e; }
 
-/* RESPONSIVE */
-@media(max-width:920px){
-  .hero-inner{grid-template-columns:1fr;}
-  .pillars{grid-template-columns:1fr;}
-  .testi-grid{grid-template-columns:1fr;}
-  .testi-row2{grid-template-columns:1fr;}
-  nav{padding:0 16px;}
-  .nav-links{display:none;}
-  .hero{padding:110px 20px 80px;}
-  .section{padding:72px 20px;}
-  .final-cta{padding:72px 20px;}
-  footer{padding:36px 20px 72px;}
-  .sticky-bar{padding:10px 20px;}
-  .host-card{padding:28px 20px;}
-  .form-card{padding:26px 18px;}
-  .field-double{grid-template-columns:1fr;}
-}
+  @media (max-width: 640px) {
+    .countdown-bar { font-size: 0.72rem; padding: 9px 14px; gap: 8px; border-radius: 22px; }
+    .countdown-timer .cd-unit { padding: 3px 7px; min-width: 34px; }
+    .countdown-timer .cd-unit span.num { font-size: 0.85rem; }
+  }
 </style>
 </head>
 <body>
 
-<div class="glow-1"></div>
-<div class="glow-2"></div>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-inner lg">
-    <div class="nav-logo">Lily Zaremba</div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#masterclass">What We Cover</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#register" class="nav-cta">Reserve My Seat</a>
+<!-- STICKY COUNTDOWN BAR -->
+<div class="countdown-bar-wrap">
+  <div class="countdown-bar">
+    <span class="cd-label">Free Masterclass</span>
+    <span class="cd-date">July 19, Sunday · 5PM EST</span>
+    <div class="countdown-timer" id="countdown">
+      <div class="cd-unit"><span class="num" id="cd-days">00</span><span class="unit-label">Days</span></div>
+      <div class="cd-unit"><span class="num" id="cd-hours">00</span><span class="unit-label">Hrs</span></div>
+      <div class="cd-unit"><span class="num" id="cd-mins">00</span><span class="unit-label">Min</span></div>
+      <div class="cd-unit"><span class="num" id="cd-secs">00</span><span class="unit-label">Sec</span></div>
     </div>
   </div>
-</nav>
+</div>
+
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
-
-    <div>
-      <div class="badge">
-        <span class="badge-dot"></span>Free Live Trading Masterclass
-      </div>
-
-      <h1>Learn How to Trade Gold with <span class="gold-grad">Confidence and Clarity</span></h1>
-
-      <p class="hero-sub">I went all in on trading with no plan B and built everything I have today from scratch. In this free live masterclass I am sharing the exact approach I use and teach, broken down simply so you can understand it, apply it, and start making informed trading decisions on your own.</p>
-
-      <div class="datetime">
-        <svg viewBox="0 0 24 24" stroke-width="1.6"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        Thursday, 17th July &nbsp;·&nbsp; 8PM EST &nbsp;/&nbsp; 1AM GMT
-      </div>
-
-      <div class="countdown">
-        <div class="cd-block"><div class="cd-num" id="cd-d">00</div><div class="cd-label gold-grad">Days</div></div>
-        <div class="cd-block"><div class="cd-num" id="cd-h">00</div><div class="cd-label gold-grad">Hours</div></div>
-        <div class="cd-block"><div class="cd-num" id="cd-m">00</div><div class="cd-label gold-grad">Mins</div></div>
-        <div class="cd-block"><div class="cd-num" id="cd-s">00</div><div class="cd-label gold-grad">Secs</div></div>
-      </div>
-
-      <div class="trust-strip">
-        <div class="avatars"><span></span><span></span><span></span><span></span></div>
-        <div class="stars gold-grad">★★★★★</div>
-        <div class="trust-text">Joined by women across the US, UK and Canada</div>
-      </div>
-
-      <div class="chips">
-        <div class="chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Free to Attend
-        </div>
-        <div class="chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>No Experience Needed
-        </div>
-        <div class="chip">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2l2 6.5H21l-5.5 4 2 6.5L12 15l-5.5 4 2-6.5L3 8.5h7z"/></svg>Limited Spots
-        </div>
-      </div>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">Free Live Masterclass</div>
+      <h1 class="serif">How To Finally Stop <em>Stressing About Money</em></h1>
+      <div class="sub-italic">the trading approach that made it possible, without the mistakes that cost me before</div>
+      <p class="desc">The honest breakdown of how I went from working 15 hour shifts to building real income, and the exact approach my partner uses to risk less and keep more.</p>
+      <div class="datetime">July 19 · Sunday · 5PM EST</div>
+      <a href="#register" class="btn-gold">Save My Free Spot</a>
     </div>
-
-    <!-- FORM -->
-    <div id="register">
-      <div class="form-card lg-strong">
-        <div class="form-badge gold-grad">Limited Seats Available</div>
-        <div class="form-title">Reserve Your Free Seat</div>
-        <div class="form-desc">Fill in your details and I will send your confirmation and live joining link straight to your inbox and phone.</div>
-        <div class="form-divider"></div>
-
-        <div class="field-double">
-          <div class="field">
-            <label>First Name</label>
-            <input type="text" placeholder="Your first name" required>
-          </div>
-          <div class="field">
-            <label>Last Name</label>
-            <input type="text" placeholder="Your last name" required>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Email Address</label>
-          <input type="email" placeholder="Your email address" required>
-          <div class="field-hint">Your confirmation and joining link will be sent here</div>
-        </div>
-
-        <div class="field">
-          <label>Phone Number</label>
-          <div class="field-row">
-            <select>
-              <option>US +1</option>
-              <option>CA +1</option>
-              <option>GB +44</option>
-              <option>AU +61</option>
-              <option>Other</option>
-            </select>
-            <input type="tel" placeholder="Your number" required>
-          </div>
-          <div class="field-hint">Your reminder texts and joining link will come here</div>
-        </div>
-
-        <div class="form-divider"></div>
-
-        <div class="check-row">
-          <input type="checkbox" required>
-          <span>I agree to receive SMS and email updates about this masterclass and related offers</span>
-        </div>
-        <div class="check-row">
-          <input type="checkbox" required>
-          <span>I understand this training is for educational purposes only and does not constitute financial advice</span>
-        </div>
-
-        <button class="btn-submit">
-          Claim My Free Seat
-          <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </button>
-        <div class="scarcity">Only 47 seats remaining for this live session</div>
-        <div class="form-note">By registering you agree to our Privacy Policy and Terms of Use. Free to attend.</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- AGENDA -->
-<section class="section" id="masterclass">
-  <div class="section-wrap">
-    <div class="s-eye">What We Cover</div>
-    <h2 class="s-title">Here Is Exactly What I Am Going to Teach You</h2>
-    <div class="agenda">
-      <div class="ag-row">
-        <div class="ag-num gold-grad">01</div>
-        <div>
-          <div class="ag-title">The Mindset Shift That Changes How You See Trading</div>
-          <div class="ag-desc">The beliefs most people carry into trading that hold them back before they even start, and how to approach the markets with a clearer, calmer perspective.</div>
-        </div>
-      </div>
-      <div class="ag-row">
-        <div class="ag-num gold-grad">02</div>
-        <div>
-          <div class="ag-title">Why Gold and How to Start Understanding It</div>
-          <div class="ag-desc">A plain-language breakdown of the gold market, what drives it, when it moves, and why it is one of the most accessible markets for people who are just getting started.</div>
-        </div>
-      </div>
-      <div class="ag-row">
-        <div class="ag-num gold-grad">03</div>
-        <div>
-          <div class="ag-title">How to Manage Risk So You Stay in the Game</div>
-          <div class="ag-desc">Trading is not about getting every trade right. I will show you how to approach risk sensibly so that a losing trade does not set you back and a good trade is something you can build on.</div>
-        </div>
-      </div>
-      <div class="ag-row">
-        <div class="ag-num gold-grad">04</div>
-        <div>
-          <div class="ag-title">How to Fit This Around Your Actual Life</div>
-          <div class="ag-desc">You do not need to be glued to a screen. I will walk you through how to structure your trading sessions so they work around your schedule, not instead of it.</div>
-        </div>
-      </div>
-      <div class="ag-row">
-        <div class="ag-num gold-grad">05</div>
-        <div>
-          <div class="ag-title">Live Q&A and Exclusive Bonuses</div>
-          <div class="ag-desc">Stay until the end and I will answer your questions live. There are also bonuses I am only giving to people who show up on the day.</div>
-        </div>
-      </div>
+    <div class="hero-img-wrap">
+      <img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/460x600/1a1611/c9a24b?text=Lily'">
     </div>
   </div>
 </section>
 
-<!-- PILLARS -->
-<section class="section">
-  <div class="section-wrap">
-    <div class="s-eye">The Method</div>
-    <h2 class="s-title">Three Things I Wish Someone Had Shown Me Earlier</h2>
-    <div class="pillars">
-      <div class="pillar lg">
-        <div class="p-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-        <div class="p-tags"><span class="p-tag">Step One</span><span class="p-tag">Foundation</span><span class="p-tag">Clarity</span></div>
-        <div class="p-title">Read the Market Without Overthinking It</div>
-        <div class="p-desc">I will show you how to understand what gold is doing and why, without needing years of experience or a finance background to do it.</div>
-      </div>
-      <div class="pillar lg">
-        <div class="p-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M3 12l4-4 4 4 4-8 4 4 2-2"/></svg></div>
-        <div class="p-tags"><span class="p-tag">Step Two</span><span class="p-tag">Entries</span><span class="p-tag">Precision</span></div>
-        <div class="p-title">Know Exactly When to Enter a Trade</div>
-        <div class="p-desc">Timing your entry is everything. I will walk you through what to look for and what to wait for so you are making informed decisions, not guesses.</div>
-      </div>
-      <div class="pillar lg">
-        <div class="p-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M4 19h16M7 19V9m5 10V5m5 14v-7"/></svg></div>
-        <div class="p-tags"><span class="p-tag">Step Three</span><span class="p-tag">Consistency</span><span class="p-tag">Discipline</span></div>
-        <div class="p-title">Build a Routine You Can Actually Stick To</div>
-        <div class="p-desc">Consistency in trading comes from having a clear process. I will show you how to build one that fits your life and keeps you focused over the long term.</div>
-      </div>
+<!-- LEARN THIS -->
+<section>
+  <div class="learn-heading">
+    <div class="eyebrow">The Curriculum</div>
+    <h2 class="serif">You're going to <em>learn</em> all this</h2>
+  </div>
+  <div class="learn-grid">
+    <div class="learn-card">
+      <div class="icon">♥</div>
+      <p>You'll learn the actual reason most people lose money trading, and it's not the one you think.</p>
     </div>
-    <div class="bonus-row">
-      <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 2l2 6.5H21l-5.5 4 2 6.5L12 15l-5.5 4 2-6.5L3 8.5h7z"/></svg>
-      <p><strong>Stay until the end</strong> for a live Q&A and exclusive bonuses I am only giving to people who show up live.</p>
+    <div class="learn-card">
+      <div class="icon">♥</div>
+      <p>You'll see exactly how a $5 risk turns into $40-50, and why that ratio matters more than anything else.</p>
+    </div>
+    <div class="learn-card">
+      <div class="icon">♥</div>
+      <p>You'll understand why being scared of losing money is actually a good sign, not a reason to sit this out.</p>
+    </div>
+    <div class="learn-card">
+      <div class="icon">♥</div>
+      <p>You'll get the same starting point I wish someone gave me before I figured it out the hard way.</p>
     </div>
   </div>
 </section>
 
-<!-- HOST -->
-<section class="section" id="about">
-  <div class="section-wrap">
-    <div class="s-eye">Your Host</div>
-    <h2 class="s-title">Hi, I am Lily</h2>
-    <div class="host-card lg-strong">
-      <div class="host-photo">
-        <img src="https://imgh.in/host/qw54za" alt="Lily Zaremba">
-      </div>
-      <div class="host-name">Lily Zaremba</div>
-      <div class="host-cred gold-grad">Trader, Creator and Educator</div>
-      <div class="host-bio">
-        <p>I discovered trading and knew immediately it was something I wanted to pursue seriously. I left university, stepped away from everything I had planned, and committed fully to learning and building in this space. Everything I know today came from doing the work, making mistakes, and being consistent even when it was hard.</p>
-        <p>I started sharing what I was learning online because I wanted other women to see that this is something accessible to them too. You do not need a finance degree or a huge starting balance. You need the right education, the right approach, and someone who will explain it to you clearly. That is what this masterclass is about.</p>
-      </div>
-      <div class="host-stats">
-        <div class="hs">
-          <div class="hs-num gold-grad">134K+</div>
-          <div class="hs-label">Community</div>
-        </div>
-        <div class="hs">
-          <div class="hs-num gold-grad">4+</div>
-          <div class="hs-label">Years Trading</div>
-        </div>
-        <div class="hs">
-          <div class="hs-num gold-grad">US · UK · CA</div>
-          <div class="hs-label">Global Reach</div>
-        </div>
-      </div>
+<!-- FOR YOU IF / NOT FOR YOU IF -->
+<section>
+  <div class="qualify-grid">
+    <div class="qualify-card">
+      <div class="eyebrow" style="margin-bottom:8px;">Consider This</div>
+      <h3 class="serif">This is <em>for you</em> if...</h3>
+      <ul class="qualify-list">
+        <li><span class="check">✓</span> You're tired of working more hours just to get taxed more and end up in the same place</li>
+        <li><span class="check">✓</span> You've tried something before, maybe lost money, and you're not trying to repeat that</li>
+        <li><span class="check">✓</span> You want someone to make this simple instead of overwhelming</li>
+        <li><span class="check">✓</span> You have a job, responsibilities, and real life, and you're not trying to gamble any of it away</li>
+      </ul>
+    </div>
+
+    <div class="disqualify-card">
+      <div class="eyebrow" style="margin-bottom:8px; color:#a8926a;">Straight Up</div>
+      <h3 class="serif">This is <em>not for you</em> if...</h3>
+      <ul class="disqualify-list">
+        <li><span class="cross">✕</span> You're looking for a get rich quick thing, that's not what this is</li>
+        <li><span class="cross">✕</span> You're not willing to actually show up and learn, even a little</li>
+        <li><span class="cross">✕</span> You want guaranteed results, nobody can promise you that and I won't</li>
+        <li><span class="cross">✕</span> You're not ready to trust the process even a bit</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section" id="testimonials">
-  <div class="section-wrap">
-    <div class="s-eye">Student Feedback</div>
-    <h2 class="s-title">What Students Are Saying</h2>
-    <div class="testi-grid">
-      <div class="t-card lg">
-        <div class="t-stars gold-grad">★★★★★</div>
-        <div class="t-quote">"I came in knowing absolutely nothing about trading. The way everything was explained made it feel approachable for the first time. I finally feel like I understand what I am doing."</div>
-        <div class="t-name">Boban M.</div>
-        <div class="t-result gold-grad">Complete beginner, now trading with confidence</div>
-      </div>
-      <div class="t-card lg">
-        <div class="t-stars gold-grad">★★★★★</div>
-        <div class="t-quote">"I had tried to learn trading before but nothing clicked until I found Lily's approach. It is practical, it is clear, and it actually makes sense when you put it into practice."</div>
-        <div class="t-name">Priya S.</div>
-        <div class="t-result gold-grad">Found clarity after struggling to learn elsewhere</div>
-      </div>
-      <div class="t-card lg">
-        <div class="t-stars gold-grad">★★★★★</div>
-        <div class="t-quote">"What sets this apart is that you are not just told what to do. You are shown why. That context is what makes the difference between following signals blindly and actually understanding the market."</div>
-        <div class="t-name">Natasha R.</div>
-        <div class="t-result gold-grad">Went from following signals to understanding the market</div>
-      </div>
+<!-- MID PHOTO SLIDER -->
+<div class="mid-slider" id="midSlider">
+  <div class="slider-track" id="sliderTrack">
+    <div class="slider-slide">
+      <img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/1200x640/1a1611/c9a24b?text=Lily+1'">
     </div>
-    <div class="testi-row2">
-      <div class="t-card lg">
-        <div class="t-stars gold-grad">★★★★★</div>
-        <div class="t-quote">"I was completely new to this world when I joined. The education is structured in a way that actually builds your knowledge step by step instead of overwhelming you all at once."</div>
-        <div class="t-name">Alina K.</div>
-        <div class="t-result gold-grad">Built real understanding from the ground up</div>
-      </div>
-      <div class="t-card lg">
-        <div class="t-stars gold-grad">★★★★★</div>
-        <div class="t-quote">"I had been through two other programs before this one. Neither of them actually taught me how to think about a trade. This is the first time I felt genuinely equipped to make my own decisions."</div>
-        <div class="t-name">Jessica T.</div>
-        <div class="t-result gold-grad">Finally equipped to make independent trading decisions</div>
-      </div>
+    <div class="slider-slide">
+      <img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/1200x640/1a1611/c9a24b?text=Lily+2'">
+    </div>
+    <div class="slider-slide">
+      <img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/1200x640/1a1611/c9a24b?text=Lily+3'">
+    </div>
+  </div>
+  <div class="slider-arrow prev" onclick="moveSlide(-1)">‹</div>
+  <div class="slider-arrow next" onclick="moveSlide(1)">›</div>
+  <div class="slider-dots" id="sliderDots"></div>
+</div>
+
+<!-- BIO -->
+<section class="bio">
+  <div class="eyebrow">Your Host</div>
+  <h2 class="serif">Hi, I'm <em>Lily</em></h2>
+  <div class="bio-text">
+    <p>So a little about me. I grew up in a house where money was always tight, always a fight. My dad came here with $20 in his pocket. My mom worked in a factory. I know what it's like to feel like you don't have control over your own life. I actually spent a couple years in foster care as a kid because things at home were that unstable. So from a really young age I understood something most people don't figure out until way later, money isn't about being rich. It's about having options.</p>
+    <p>I got rejected from eight jobs in a row, including McDonald's. I worked 15 hour shifts in fast food while going to university, and I still felt like I wasn't getting anywhere. Then one day I made $500 in 30 minutes trading. And I remember thinking, how do I justify working for $14 an hour when I just made that in half an hour. That was it for me. I quit my job. I dropped out of school. No plan B, just plan A.</p>
+    <p>Since then I've built multiple businesses and helped hundreds of people generate real income. But honestly, a lot of where I am now comes down to someone I've known for years, someone I trust more than anyone else when it comes to this. I watched him go from having a regular 9-5 like everyone else to doing this full time. I've seen the entire transformation up close. What makes his approach different is the risk to reward, he's not out here throwing money at the market hoping something sticks. He's calculated. He risks small to make a lot more back. And he's not trying to sell anything, he's just genuinely good at what he does, which honestly makes me trust him more.</p>
+    <p>I'm not naming him here, that part comes later. But because of him I've been able to actually build something real, and because I know what it feels like to be exactly where a lot of you are right now, I want to help the people who are in that same spot.</p>
+    <p>So that's what this masterclass is. Me being honest about what actually worked, and showing you the person and the approach behind it.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="faq-heading">
+    <div class="eyebrow">FAQ</div>
+    <h2 class="serif">Questions You <em>Might Have</em></h2>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      Do I need any experience to do this?
+      <span class="arrow">▾</span>
+    </div>
+    <div class="faq-answer">
+      <p>No, and honestly most of the people in this aren't traders when they start. I wasn't either. I'm not a math person, numbers used to scare me, but you don't actually need math for this. You just need to know if price is going up or down. That's it. So if that's what's stopping you, it's not a real reason.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      I don't really have money to invest right now, is this for me?
+      <span class="arrow">▾</span>
+    </div>
+    <div class="faq-answer">
+      <p>Here's the thing, most people who say that to me actually aren't broke, they're scared to risk money they can't afford to lose. Which is fair. So this isn't about throwing in whatever you have and hoping. It's about starting small and understanding exactly why every move is being made before you risk more. Take it or leave it, but that fear usually goes away once you actually see how it works.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      I've tried trading before and lost money, why would this be different?
+      <span class="arrow">▾</span>
+    </div>
+    <div class="faq-answer">
+      <p>If that's you, you're actually not alone, most people on this masterclass have already tried something and gotten burned somewhere. That's not on you. It's usually because whoever was guiding you was better at marketing than they were at actually trading. The person behind what I'm sharing is the opposite of that. He's not out here trying to sell courses, he's just on the charts. His whole thing is risking small to make big, not the other way around. So yeah, that's the actual difference.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question" onclick="toggleFaq(this)">
+      Is this financial advice, or guaranteed to work?
+      <span class="arrow">▾</span>
+    </div>
+    <div class="faq-answer">
+      <p>No, and I'll always be straight with you about that. Past results don't guarantee future ones, that's just how it is, that's my disclaimer. I'm not going to sit here and tell you it's typical to turn $258 into $30,000 in three days, because it's not. But it happened. So I'd rather show you what's real and let you decide than promise you something I can't back up.</p>
     </div>
   </div>
 </section>
 
 <!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="s-eye">Secure Your Spot</div>
-  <h2 class="s-title">This Masterclass Is Completely Free. Your Seat Is Not.</h2>
-  <p class="final-sub">Spots are limited. Reserve yours now and I will send everything you need straight to your inbox.</p>
-  <a href="#register" class="btn-gold">
-    Reserve My Free Seat
-    <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
-  </a>
-  <div class="final-scarcity">Only 47 seats remaining for this live session</div>
+<section id="register">
+  <div class="final-cta">
+    <div class="eyebrow">The Invitation</div>
+    <h2 class="serif">Ready To Actually <em>See How This Works?</em></h2>
+    <p class="sub">Save your spot, it's free, and I'll walk you through everything live.</p>
+    <div class="form-wrap">
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <input type="tel" placeholder="Phone">
+      <button class="btn-gold" style="width:100%; border:none;">Save My Free Spot</button>
+      <p class="fine-print">Your spot is reserved the moment you register.</p>
+    </div>
+  </div>
 </section>
 
-<!-- STICKY BAR -->
-<div class="sticky-bar lg-strong" id="stickyBar">
-  <span>Live masterclass starts Thursday 17th July. Seats are limited.</span>
-  <a href="#register" class="sticky-cta">Reserve My Seat</a>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-links">
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms of Use</a>
-    <a href="#">Earnings Disclaimer</a>
-  </div>
-  <div class="disclaimer">This masterclass is for educational purposes only and does not constitute financial advice. Trading involves risk and is not suitable for everyone. Past results referenced by students are not typical, not guaranteed, and individual outcomes will vary. Please trade responsibly and only with capital you can afford to lose. By registering you agree to receive communications from Lily Zaremba related to this event and future educational content.</div>
-</footer>
+<footer>Lily Zaremba · 2026</footer>
 
 <script>
-// Countdown wired to Thursday 17th July 2025 8PM EST
-const target = new Date('2025-07-17T20:00:00-05:00');
-
-function tick() {
-  const now = new Date();
-  const diff = Math.max(0, target - now);
-  const days = Math.floor(diff / 86400000);
-  const hours = Math.floor((diff % 86400000) / 3600000);
-  const mins = Math.floor((diff % 3600000) / 60000);
-  const secs = Math.floor((diff % 60000) / 1000);
-  document.getElementById('cd-d').textContent = String(days).padStart(2, '0');
-  document.getElementById('cd-h').textContent = String(hours).padStart(2, '0');
-  document.getElementById('cd-m').textContent = String(mins).padStart(2, '0');
-  document.getElementById('cd-s').textContent = String(secs).padStart(2, '0');
+function toggleFaq(el) {
+  const item = el.parentElement;
+  document.querySelectorAll('.faq-item').forEach(i => { if (i !== item) i.classList.remove('open'); });
+  item.classList.toggle('open');
 }
 
-tick();
-setInterval(tick, 1000);
+// Countdown to July 19, 5PM EST (EST = UTC-5)
+const targetDate = new Date("2026-07-19T17:00:00-05:00");
 
-// Sticky bar
-const bar = document.getElementById('stickyBar');
-window.addEventListener('scroll', () => bar.classList.toggle('vis', window.scrollY > 600));
+function updateCountdown() {
+  const now = new Date();
+  let diff = targetDate - now;
+
+  if (diff <= 0) {
+    document.getElementById('cd-days').textContent = "00";
+    document.getElementById('cd-hours').textContent = "00";
+    document.getElementById('cd-mins').textContent = "00";
+    document.getElementById('cd-secs').textContent = "00";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const mins = Math.floor((diff / (1000 * 60)) % 60);
+  const secs = Math.floor((diff / 1000) % 60);
+
+  document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+  document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+  document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// SLIDER
+const sliderTrack = document.getElementById('sliderTrack');
+const slides = sliderTrack ? sliderTrack.children : [];
+const dotsWrap = document.getElementById('sliderDots');
+let currentSlide = 0;
+
+if (sliderTrack && slides.length > 0) {
+  for (let i = 0; i < slides.length; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goToSlide(i);
+    dotsWrap.appendChild(dot);
+  }
+
+  function goToSlide(index) {
+    currentSlide = (index + slides.length) % slides.length;
+    sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+    document.querySelectorAll('.slider-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === currentSlide);
+    });
+  }
+
+  window.moveSlide = function(dir) {
+    goToSlide(currentSlide + dir);
+  };
+
+  // autoplay
+  let autoplay = setInterval(() => goToSlide(currentSlide + 1), 5000);
+  const sliderEl = document.getElementById('midSlider');
+  sliderEl.addEventListener('mouseenter', () => clearInterval(autoplay));
+  sliderEl.addEventListener('mouseleave', () => { autoplay = setInterval(() => goToSlide(currentSlide + 1), 5000); });
+
+  // basic swipe support
+  let startX = 0;
+  sliderEl.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  sliderEl.addEventListener('touchend', e => {
+    const diff = e.changedTouches[0].clientX - startX;
+    if (diff > 50) moveSlide(-1);
+    else if (diff < -50) moveSlide(1);
+  });
+}
 </script>
+
 </body>
 </html>
