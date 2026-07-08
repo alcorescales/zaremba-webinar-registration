@@ -271,22 +271,6 @@
   .bio-row-text .bio-kicker { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--antique-gold); font-weight: 700; margin-bottom: 10px; display: block; }
   .bio-row-text p { font-size: 1.02rem; line-height: 1.7; color: var(--text-dark); font-weight: 600; }
 
-  /* ============ FAQ ============ */
-  .faq-heading { text-align: center; margin-bottom: 40px; }
-  .faq-heading h2 { font-size: clamp(1.6rem, 4.5vw, 2.2rem); font-weight: 700; margin-top: 16px; }
-  .faq-heading h2 em { color: var(--gold); font-style: italic; font-weight: 700; }
-  .faq-item { background: var(--pearl); border: 1px solid rgba(201,162,75,0.2); border-radius: 14px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 10px 24px -14px rgba(43,36,26,0.15); }
-  .faq-question {
-    padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px;
-    cursor: pointer; font-weight: 600; font-size: 0.98rem; line-height: 1.4;
-    -webkit-tap-highlight-color: transparent; min-height: 48px;
-  }
-  .faq-question .arrow { color: var(--gold); transition: transform 0.25s ease; font-size: 0.9rem; flex-shrink: 0; }
-  .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
-  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 20px; }
-  .faq-item.open .faq-answer { max-height: 500px; padding-bottom: 20px; }
-  .faq-answer p { color: var(--text-muted); line-height: 1.6; font-size: 0.92rem; }
-
   /* ============ FINAL CTA ============ */
   .final-cta { background: linear-gradient(160deg, var(--champagne), #f0dfb8); border-radius: 28px; text-align: center; padding: 60px 32px; margin-bottom: 60px; box-shadow: 0 20px 44px -20px rgba(184,146,63,0.35); }
   .final-cta .eyebrow { margin-bottom: 12px; }
@@ -328,10 +312,6 @@
 
     .bio-intro { margin-bottom: 32px; }
     .bio-row-text p { font-size: 0.95rem; line-height: 1.65; }
-
-    .faq-question { font-size: 0.92rem; padding: 16px 16px; }
-    .faq-answer { padding: 0 16px; }
-    .faq-answer p { font-size: 0.88rem; }
 
     .final-cta { padding: 36px 18px; border-radius: 22px; }
 
@@ -507,40 +487,12 @@
     <div class="bio-row-img"><img src="https://i.ibb.co/8Zhgpsr/Lily-s-PFP.jpg" alt="Lily" onerror="this.src='https://placehold.co/500x625/1a1611/c9a24b?text=Lily'"></div>
     <div class="bio-row-text">
       <span class="bio-kicker">Why I'm Doing This</span>
-      <p>A lot of where I am now comes down to someone I've known for years, someone whose approach to risk is calculated, not reckless, won't be naming him here, that part comes later. Because of him I've been able to build something real, and because I know what it feels like to be exactly where you are right now, I want to show you the same starting point.</p>
+      <p>A lot of where I am now comes down to someone I've known for years, someone whose approach to risk is calculated, not reckless, I'd want to introduce him to everyone who joins, and that's exactly what I'll do on the masterclass Because of him I've been able to build something real, and because I know what it feels like to be exactly where you are right now, I want to show you the same starting point.</p>
     </div>
   </div>
 
   <div class="inline-cta-wrap">
     <a href="#register" class="btn-gold">Save My Free Spot</a>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section>
-  <div class="faq-heading">
-    <div class="eyebrow">FAQ</div>
-    <h2 class="serif">Questions You <em>Might Have</em></h2>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleFaq(this)">Do I need any experience to do this?<span class="arrow">▾</span></div>
-    <div class="faq-answer"><p>No, and honestly most of the people in this aren't traders when they start. I wasn't either. I'm not a math person, numbers used to scare me, but you don't actually need math for this. You just need to know if price is going up or down. That's it. So if that's what's stopping you, it's not a real reason.</p></div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleFaq(this)">I don't really have money to invest right now, is this for me?<span class="arrow">▾</span></div>
-    <div class="faq-answer"><p>Here's the thing, most people who say that to me actually aren't broke, they're scared to risk money they can't afford to lose. Which is fair. So this isn't about throwing in whatever you have and hoping. It's about starting small and understanding exactly why every move is being made before you risk more. Take it or leave it, but that fear usually goes away once you actually see how it works.</p></div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleFaq(this)">I've tried trading before and lost money, why would this be different?<span class="arrow">▾</span></div>
-    <div class="faq-answer"><p>If that's you, you're actually not alone, most people on this masterclass have already tried something and gotten burned somewhere. That's not on you. It's usually because whoever was guiding you was better at marketing than they were at actually trading. The person behind what I'm sharing is the opposite of that. He's not out here trying to sell courses, he's just on the charts. His whole thing is risking small to make big, not the other way around. So yeah, that's the actual difference.</p></div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question" onclick="toggleFaq(this)">Is this financial advice, or guaranteed to work?<span class="arrow">▾</span></div>
-    <div class="faq-answer"><p>No, and I'll always be straight with you about that. Past results don't guarantee future ones, that's just how it is, that's my disclaimer. I'm not going to sit here and tell you it's typical to turn $258 into $30,000 in three days, because it's not. But it happened. So I'd rather show you what's real and let you decide than promise you something I can't back up.</p></div>
   </div>
 </section>
 
@@ -557,12 +509,6 @@
 <footer>Lily Zaremba · 2026</footer>
 
 <script>
-function toggleFaq(el) {
-  const item = el.parentElement;
-  document.querySelectorAll('.faq-item').forEach(i => { if (i !== item) i.classList.remove('open'); });
-  item.classList.toggle('open');
-}
-
 // Countdown to July 19, 5PM EST
 const targetDate = new Date("2026-07-19T17:00:00-05:00");
 function updateCountdown() {
